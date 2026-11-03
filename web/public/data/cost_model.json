@@ -1,0 +1,4131 @@
+{
+ "prices": {
+  "doubleword": {
+   "in": 0.11,
+   "cached": 0.01,
+   "out": 0.32
+  },
+  "deepinfra": {
+   "in": 0.3,
+   "cached": 0.04,
+   "out": 1.2
+  },
+  "together_nocache": {
+   "in": 0.35,
+   "cached": 0.35,
+   "out": 1.5
+  }
+ },
+ "gpu_hourly": {
+  "spot": 0.423,
+  "on_demand": 0.707
+ },
+ "levels": {
+  "low": {
+   "success_rate": 0.975,
+   "steps": 7.8,
+   "in_tok": 20383.333333333332,
+   "cache_hit": 0.9336675,
+   "out_tok": 1229.2051282051282,
+   "reason_tok": 623.075,
+   "s_per_success": 83.72897435897437,
+   "cap_per_hr": 182.0,
+   "cap_per_day": 4368.0,
+   "cap_measured": true,
+   "api_cost_per_task": {
+    "doubleword": 0.0007323867201923077,
+    "deepinfra": 0.0026419196263461537,
+    "together_nocache": 0.008977974358974359
+   },
+   "self_host": {
+    "spot": {
+     "gpu_per_day": 10.152,
+     "per_task_by_util": {
+      "0.25": 0.009296703296703296,
+      "0.5": 0.004648351648351648,
+      "0.75": 0.0030989010989010985,
+      "1.0": 0.002324175824175824
+     },
+     "breakeven": {
+      "doubleword": {
+       "tasks_per_day": 13861.529326111102,
+       "util_needed": 3.173427043523604,
+       "one_gpu_wins": false
+      },
+      "deepinfra": {
+       "tasks_per_day": 3842.660427198722,
+       "util_needed": 0.8797299512817587,
+       "one_gpu_wins": true
+      },
+      "together_nocache": {
+       "tasks_per_day": 1130.7673194513068,
+       "util_needed": 0.2588753020721856,
+       "one_gpu_wins": true
+      }
+     }
+    },
+    "on_demand": {
+     "gpu_per_day": 16.968,
+     "per_task_by_util": {
+      "0.25": 0.01553846153846154,
+      "0.5": 0.00776923076923077,
+      "0.75": 0.0051794871794871794,
+      "1.0": 0.003884615384615385
+     },
+     "breakeven": {
+      "doubleword": {
+       "tasks_per_day": 23168.088022601773,
+       "util_needed": 5.304049455723849,
+       "one_gpu_wins": false
+      },
+      "deepinfra": {
+       "tasks_per_day": 6422.602652552002,
+       "util_needed": 1.470376065144689,
+       "one_gpu_wins": false
+      },
+      "together_nocache": {
+       "tasks_per_day": 1889.9586166715696,
+       "util_needed": 0.432682833487081,
+       "one_gpu_wins": true
+      }
+     }
+    }
+   },
+   "curve": [
+    {
+     "tasks_per_day": 0,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.0,
+     "api_deepinfra": 0.0,
+     "api_together_nocache": 0.0
+    },
+    {
+     "tasks_per_day": 100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.07323867201923077,
+     "api_deepinfra": 0.26419196263461536,
+     "api_together_nocache": 0.8977974358974359
+    },
+    {
+     "tasks_per_day": 200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.14647734403846155,
+     "api_deepinfra": 0.5283839252692307,
+     "api_together_nocache": 1.7955948717948718
+    },
+    {
+     "tasks_per_day": 300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.2197160160576923,
+     "api_deepinfra": 0.7925758879038461,
+     "api_together_nocache": 2.6933923076923074
+    },
+    {
+     "tasks_per_day": 400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.2929546880769231,
+     "api_deepinfra": 1.0567678505384615,
+     "api_together_nocache": 3.5911897435897435
+    },
+    {
+     "tasks_per_day": 500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.3661933600961539,
+     "api_deepinfra": 1.3209598131730769,
+     "api_together_nocache": 4.48898717948718
+    },
+    {
+     "tasks_per_day": 600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.4394320321153846,
+     "api_deepinfra": 1.5851517758076923,
+     "api_together_nocache": 5.386784615384615
+    },
+    {
+     "tasks_per_day": 700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.5126707041346154,
+     "api_deepinfra": 1.8493437384423077,
+     "api_together_nocache": 6.284582051282051
+    },
+    {
+     "tasks_per_day": 800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.5859093761538462,
+     "api_deepinfra": 2.113535701076923,
+     "api_together_nocache": 7.182379487179487
+    },
+    {
+     "tasks_per_day": 900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.6591480481730769,
+     "api_deepinfra": 2.3777276637115383,
+     "api_together_nocache": 8.080176923076923
+    },
+    {
+     "tasks_per_day": 1000,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.7323867201923078,
+     "api_deepinfra": 2.6419196263461537,
+     "api_together_nocache": 8.97797435897436
+    },
+    {
+     "tasks_per_day": 1100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.8056253922115385,
+     "api_deepinfra": 2.906111588980769,
+     "api_together_nocache": 9.875771794871794
+    },
+    {
+     "tasks_per_day": 1200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.8788640642307692,
+     "api_deepinfra": 3.1703035516153846,
+     "api_together_nocache": 10.77356923076923
+    },
+    {
+     "tasks_per_day": 1300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.9521027362500001,
+     "api_deepinfra": 3.43449551425,
+     "api_together_nocache": 11.671366666666666
+    },
+    {
+     "tasks_per_day": 1400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.0253414082692307,
+     "api_deepinfra": 3.6986874768846154,
+     "api_together_nocache": 12.569164102564102
+    },
+    {
+     "tasks_per_day": 1500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.0985800802884615,
+     "api_deepinfra": 3.9628794395192304,
+     "api_together_nocache": 13.466961538461538
+    },
+    {
+     "tasks_per_day": 1600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.1718187523076924,
+     "api_deepinfra": 4.227071402153846,
+     "api_together_nocache": 14.364758974358974
+    },
+    {
+     "tasks_per_day": 1700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.245057424326923,
+     "api_deepinfra": 4.491263364788462,
+     "api_together_nocache": 15.26255641025641
+    },
+    {
+     "tasks_per_day": 1800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.3182960963461539,
+     "api_deepinfra": 4.755455327423077,
+     "api_together_nocache": 16.160353846153846
+    },
+    {
+     "tasks_per_day": 1900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.3915347683653847,
+     "api_deepinfra": 5.019647290057692,
+     "api_together_nocache": 17.05815128205128
+    },
+    {
+     "tasks_per_day": 2000,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.4647734403846155,
+     "api_deepinfra": 5.2838392526923075,
+     "api_together_nocache": 17.95594871794872
+    },
+    {
+     "tasks_per_day": 2100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.5380121124038462,
+     "api_deepinfra": 5.5480312153269224,
+     "api_together_nocache": 18.853746153846153
+    },
+    {
+     "tasks_per_day": 2200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.611250784423077,
+     "api_deepinfra": 5.812223177961538,
+     "api_together_nocache": 19.751543589743587
+    },
+    {
+     "tasks_per_day": 2300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.6844894564423079,
+     "api_deepinfra": 6.076415140596153,
+     "api_together_nocache": 20.649341025641025
+    },
+    {
+     "tasks_per_day": 2400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.7577281284615385,
+     "api_deepinfra": 6.340607103230769,
+     "api_together_nocache": 21.54713846153846
+    },
+    {
+     "tasks_per_day": 2500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.8309668004807693,
+     "api_deepinfra": 6.604799065865384,
+     "api_together_nocache": 22.444935897435897
+    },
+    {
+     "tasks_per_day": 2600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.9042054725000002,
+     "api_deepinfra": 6.8689910285,
+     "api_together_nocache": 23.34273333333333
+    },
+    {
+     "tasks_per_day": 2700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.9774441445192308,
+     "api_deepinfra": 7.133182991134615,
+     "api_together_nocache": 24.24053076923077
+    },
+    {
+     "tasks_per_day": 2800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.0506828165384614,
+     "api_deepinfra": 7.397374953769231,
+     "api_together_nocache": 25.138328205128204
+    },
+    {
+     "tasks_per_day": 2900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.1239214885576922,
+     "api_deepinfra": 7.661566916403846,
+     "api_together_nocache": 26.03612564102564
+    },
+    {
+     "tasks_per_day": 3000,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.197160160576923,
+     "api_deepinfra": 7.925758879038461,
+     "api_together_nocache": 26.933923076923076
+    },
+    {
+     "tasks_per_day": 3100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.270398832596154,
+     "api_deepinfra": 8.189950841673076,
+     "api_together_nocache": 27.83172051282051
+    },
+    {
+     "tasks_per_day": 3200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.343637504615385,
+     "api_deepinfra": 8.454142804307692,
+     "api_together_nocache": 28.729517948717948
+    },
+    {
+     "tasks_per_day": 3300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.4168761766346156,
+     "api_deepinfra": 8.718334766942307,
+     "api_together_nocache": 29.627315384615382
+    },
+    {
+     "tasks_per_day": 3400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.490114848653846,
+     "api_deepinfra": 8.982526729576923,
+     "api_together_nocache": 30.52511282051282
+    },
+    {
+     "tasks_per_day": 3500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.563353520673077,
+     "api_deepinfra": 9.246718692211537,
+     "api_together_nocache": 31.422910256410255
+    },
+    {
+     "tasks_per_day": 3600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.6365921926923077,
+     "api_deepinfra": 9.510910654846153,
+     "api_together_nocache": 32.32070769230769
+    },
+    {
+     "tasks_per_day": 3700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.7098308647115386,
+     "api_deepinfra": 9.77510261748077,
+     "api_together_nocache": 33.21850512820512
+    },
+    {
+     "tasks_per_day": 3800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.7830695367307694,
+     "api_deepinfra": 10.039294580115383,
+     "api_together_nocache": 34.11630256410256
+    },
+    {
+     "tasks_per_day": 3900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.8563082087500002,
+     "api_deepinfra": 10.303486542749999,
+     "api_together_nocache": 35.0141
+    },
+    {
+     "tasks_per_day": 4000,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.929546880769231,
+     "api_deepinfra": 10.567678505384615,
+     "api_together_nocache": 35.91189743589744
+    },
+    {
+     "tasks_per_day": 4100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 3.0027855527884615,
+     "api_deepinfra": 10.83187046801923,
+     "api_together_nocache": 36.80969487179487
+    },
+    {
+     "tasks_per_day": 4200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 3.0760242248076923,
+     "api_deepinfra": 11.096062430653845,
+     "api_together_nocache": 37.707492307692306
+    },
+    {
+     "tasks_per_day": 4300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 3.149262896826923,
+     "api_deepinfra": 11.36025439328846,
+     "api_together_nocache": 38.60528974358974
+    },
+    {
+     "tasks_per_day": 4400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.222501568846154,
+     "api_deepinfra": 11.624446355923077,
+     "api_together_nocache": 39.503087179487174
+    },
+    {
+     "tasks_per_day": 4500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.295740240865385,
+     "api_deepinfra": 11.888638318557692,
+     "api_together_nocache": 40.40088461538461
+    },
+    {
+     "tasks_per_day": 4600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.3689789128846157,
+     "api_deepinfra": 12.152830281192307,
+     "api_together_nocache": 41.29868205128205
+    },
+    {
+     "tasks_per_day": 4700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.442217584903846,
+     "api_deepinfra": 12.417022243826922,
+     "api_together_nocache": 42.19647948717949
+    },
+    {
+     "tasks_per_day": 4800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.515456256923077,
+     "api_deepinfra": 12.681214206461538,
+     "api_together_nocache": 43.09427692307692
+    },
+    {
+     "tasks_per_day": 4900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.588694928942308,
+     "api_deepinfra": 12.945406169096152,
+     "api_together_nocache": 43.99207435897436
+    },
+    {
+     "tasks_per_day": 5000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.6619336009615386,
+     "api_deepinfra": 13.209598131730768,
+     "api_together_nocache": 44.889871794871794
+    },
+    {
+     "tasks_per_day": 5100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.7351722729807695,
+     "api_deepinfra": 13.473790094365384,
+     "api_together_nocache": 45.78766923076923
+    },
+    {
+     "tasks_per_day": 5200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.8084109450000003,
+     "api_deepinfra": 13.737982057,
+     "api_together_nocache": 46.68546666666666
+    },
+    {
+     "tasks_per_day": 5300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.8816496170192307,
+     "api_deepinfra": 14.002174019634614,
+     "api_together_nocache": 47.5832641025641
+    },
+    {
+     "tasks_per_day": 5400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.9548882890384616,
+     "api_deepinfra": 14.26636598226923,
+     "api_together_nocache": 48.48106153846154
+    },
+    {
+     "tasks_per_day": 5500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.028126961057692,
+     "api_deepinfra": 14.530557944903846,
+     "api_together_nocache": 49.37885897435897
+    },
+    {
+     "tasks_per_day": 5600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.101365633076923,
+     "api_deepinfra": 14.794749907538462,
+     "api_together_nocache": 50.27665641025641
+    },
+    {
+     "tasks_per_day": 5700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.174604305096154,
+     "api_deepinfra": 15.058941870173076,
+     "api_together_nocache": 51.174453846153845
+    },
+    {
+     "tasks_per_day": 5800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.2478429771153845,
+     "api_deepinfra": 15.323133832807692,
+     "api_together_nocache": 52.07225128205128
+    },
+    {
+     "tasks_per_day": 5900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.321081649134616,
+     "api_deepinfra": 15.587325795442307,
+     "api_together_nocache": 52.970048717948714
+    },
+    {
+     "tasks_per_day": 6000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.394320321153846,
+     "api_deepinfra": 15.851517758076922,
+     "api_together_nocache": 53.86784615384615
+    },
+    {
+     "tasks_per_day": 6100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.4675589931730775,
+     "api_deepinfra": 16.11570972071154,
+     "api_together_nocache": 54.76564358974359
+    },
+    {
+     "tasks_per_day": 6200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.540797665192308,
+     "api_deepinfra": 16.37990168334615,
+     "api_together_nocache": 55.66344102564102
+    },
+    {
+     "tasks_per_day": 6300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.614036337211538,
+     "api_deepinfra": 16.644093645980767,
+     "api_together_nocache": 56.56123846153846
+    },
+    {
+     "tasks_per_day": 6400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.68727500923077,
+     "api_deepinfra": 16.908285608615383,
+     "api_together_nocache": 57.459035897435896
+    },
+    {
+     "tasks_per_day": 6500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.76051368125,
+     "api_deepinfra": 17.17247757125,
+     "api_together_nocache": 58.356833333333334
+    },
+    {
+     "tasks_per_day": 6600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.833752353269231,
+     "api_deepinfra": 17.436669533884615,
+     "api_together_nocache": 59.254630769230765
+    },
+    {
+     "tasks_per_day": 6700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.906991025288462,
+     "api_deepinfra": 17.70086149651923,
+     "api_together_nocache": 60.1524282051282
+    },
+    {
+     "tasks_per_day": 6800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.980229697307692,
+     "api_deepinfra": 17.965053459153847,
+     "api_together_nocache": 61.05022564102564
+    },
+    {
+     "tasks_per_day": 6900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.053468369326923,
+     "api_deepinfra": 18.22924542178846,
+     "api_together_nocache": 61.94802307692307
+    },
+    {
+     "tasks_per_day": 7000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.126707041346154,
+     "api_deepinfra": 18.493437384423075,
+     "api_together_nocache": 62.84582051282051
+    },
+    {
+     "tasks_per_day": 7100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.199945713365385,
+     "api_deepinfra": 18.75762934705769,
+     "api_together_nocache": 63.74361794871795
+    },
+    {
+     "tasks_per_day": 7200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.273184385384615,
+     "api_deepinfra": 19.021821309692307,
+     "api_together_nocache": 64.64141538461539
+    },
+    {
+     "tasks_per_day": 7300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.346423057403847,
+     "api_deepinfra": 19.286013272326922,
+     "api_together_nocache": 65.53921282051282
+    },
+    {
+     "tasks_per_day": 7400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.419661729423077,
+     "api_deepinfra": 19.55020523496154,
+     "api_together_nocache": 66.43701025641025
+    },
+    {
+     "tasks_per_day": 7500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.4929004014423075,
+     "api_deepinfra": 19.814397197596154,
+     "api_together_nocache": 67.33480769230769
+    },
+    {
+     "tasks_per_day": 7600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.566139073461539,
+     "api_deepinfra": 20.078589160230766,
+     "api_together_nocache": 68.23260512820512
+    },
+    {
+     "tasks_per_day": 7700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.639377745480769,
+     "api_deepinfra": 20.342781122865382,
+     "api_together_nocache": 69.13040256410257
+    },
+    {
+     "tasks_per_day": 7800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.7126164175000005,
+     "api_deepinfra": 20.606973085499998,
+     "api_together_nocache": 70.0282
+    },
+    {
+     "tasks_per_day": 7900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.785855089519231,
+     "api_deepinfra": 20.871165048134614,
+     "api_together_nocache": 70.92599743589743
+    },
+    {
+     "tasks_per_day": 8000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.859093761538462,
+     "api_deepinfra": 21.13535701076923,
+     "api_together_nocache": 71.82379487179487
+    },
+    {
+     "tasks_per_day": 8100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.932332433557693,
+     "api_deepinfra": 21.399548973403846,
+     "api_together_nocache": 72.7215923076923
+    },
+    {
+     "tasks_per_day": 8200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 6.005571105576923,
+     "api_deepinfra": 21.66374093603846,
+     "api_together_nocache": 73.61938974358974
+    },
+    {
+     "tasks_per_day": 8300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 6.078809777596154,
+     "api_deepinfra": 21.927932898673077,
+     "api_together_nocache": 74.51718717948718
+    },
+    {
+     "tasks_per_day": 8400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 6.152048449615385,
+     "api_deepinfra": 22.19212486130769,
+     "api_together_nocache": 75.41498461538461
+    },
+    {
+     "tasks_per_day": 8500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 6.225287121634616,
+     "api_deepinfra": 22.456316823942306,
+     "api_together_nocache": 76.31278205128204
+    },
+    {
+     "tasks_per_day": 8600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 6.298525793653846,
+     "api_deepinfra": 22.72050878657692,
+     "api_together_nocache": 77.21057948717949
+    },
+    {
+     "tasks_per_day": 8700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 6.371764465673077,
+     "api_deepinfra": 22.984700749211537,
+     "api_together_nocache": 78.10837692307692
+    },
+    {
+     "tasks_per_day": 8800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.445003137692308,
+     "api_deepinfra": 23.248892711846153,
+     "api_together_nocache": 79.00617435897435
+    },
+    {
+     "tasks_per_day": 8900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.518241809711538,
+     "api_deepinfra": 23.51308467448077,
+     "api_together_nocache": 79.9039717948718
+    },
+    {
+     "tasks_per_day": 9000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.59148048173077,
+     "api_deepinfra": 23.777276637115385,
+     "api_together_nocache": 80.80176923076922
+    },
+    {
+     "tasks_per_day": 9100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.66471915375,
+     "api_deepinfra": 24.041468599749997,
+     "api_together_nocache": 81.69956666666667
+    },
+    {
+     "tasks_per_day": 9200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.737957825769231,
+     "api_deepinfra": 24.305660562384613,
+     "api_together_nocache": 82.5973641025641
+    },
+    {
+     "tasks_per_day": 9300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.811196497788462,
+     "api_deepinfra": 24.56985252501923,
+     "api_together_nocache": 83.49516153846153
+    },
+    {
+     "tasks_per_day": 9400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.884435169807692,
+     "api_deepinfra": 24.834044487653845,
+     "api_together_nocache": 84.39295897435898
+    },
+    {
+     "tasks_per_day": 9500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.9576738418269235,
+     "api_deepinfra": 25.09823645028846,
+     "api_together_nocache": 85.2907564102564
+    },
+    {
+     "tasks_per_day": 9600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.030912513846154,
+     "api_deepinfra": 25.362428412923077,
+     "api_together_nocache": 86.18855384615384
+    },
+    {
+     "tasks_per_day": 9700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.104151185865385,
+     "api_deepinfra": 25.626620375557692,
+     "api_together_nocache": 87.08635128205128
+    },
+    {
+     "tasks_per_day": 9800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.177389857884616,
+     "api_deepinfra": 25.890812338192305,
+     "api_together_nocache": 87.98414871794871
+    },
+    {
+     "tasks_per_day": 9900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.250628529903846,
+     "api_deepinfra": 26.15500430082692,
+     "api_together_nocache": 88.88194615384614
+    },
+    {
+     "tasks_per_day": 10000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.323867201923077,
+     "api_deepinfra": 26.419196263461536,
+     "api_together_nocache": 89.77974358974359
+    },
+    {
+     "tasks_per_day": 10100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.397105873942308,
+     "api_deepinfra": 26.683388226096152,
+     "api_together_nocache": 90.67754102564102
+    },
+    {
+     "tasks_per_day": 10200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.470344545961539,
+     "api_deepinfra": 26.947580188730768,
+     "api_together_nocache": 91.57533846153846
+    },
+    {
+     "tasks_per_day": 10300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.543583217980769,
+     "api_deepinfra": 27.211772151365384,
+     "api_together_nocache": 92.4731358974359
+    },
+    {
+     "tasks_per_day": 10400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.616821890000001,
+     "api_deepinfra": 27.475964114,
+     "api_together_nocache": 93.37093333333333
+    },
+    {
+     "tasks_per_day": 10500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.690060562019231,
+     "api_deepinfra": 27.740156076634612,
+     "api_together_nocache": 94.26873076923077
+    },
+    {
+     "tasks_per_day": 10600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.7632992340384614,
+     "api_deepinfra": 28.004348039269228,
+     "api_together_nocache": 95.1665282051282
+    },
+    {
+     "tasks_per_day": 10700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.836537906057693,
+     "api_deepinfra": 28.268540001903844,
+     "api_together_nocache": 96.06432564102563
+    },
+    {
+     "tasks_per_day": 10800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.909776578076923,
+     "api_deepinfra": 28.53273196453846,
+     "api_together_nocache": 96.96212307692308
+    },
+    {
+     "tasks_per_day": 10900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.983015250096154,
+     "api_deepinfra": 28.796923927173076,
+     "api_together_nocache": 97.85992051282051
+    },
+    {
+     "tasks_per_day": 11000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.056253922115385,
+     "api_deepinfra": 29.06111588980769,
+     "api_together_nocache": 98.75771794871794
+    },
+    {
+     "tasks_per_day": 11100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.129492594134616,
+     "api_deepinfra": 29.325307852442307,
+     "api_together_nocache": 99.65551538461538
+    },
+    {
+     "tasks_per_day": 11200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.202731266153846,
+     "api_deepinfra": 29.589499815076923,
+     "api_together_nocache": 100.55331282051282
+    },
+    {
+     "tasks_per_day": 11300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.275969938173077,
+     "api_deepinfra": 29.853691777711536,
+     "api_together_nocache": 101.45111025641025
+    },
+    {
+     "tasks_per_day": 11400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.349208610192308,
+     "api_deepinfra": 30.11788374034615,
+     "api_together_nocache": 102.34890769230769
+    },
+    {
+     "tasks_per_day": 11500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.42244728221154,
+     "api_deepinfra": 30.382075702980767,
+     "api_together_nocache": 103.24670512820512
+    },
+    {
+     "tasks_per_day": 11600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.495685954230769,
+     "api_deepinfra": 30.646267665615383,
+     "api_together_nocache": 104.14450256410257
+    },
+    {
+     "tasks_per_day": 11700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.56892462625,
+     "api_deepinfra": 30.91045962825,
+     "api_together_nocache": 105.0423
+    },
+    {
+     "tasks_per_day": 11800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.642163298269232,
+     "api_deepinfra": 31.174651590884615,
+     "api_together_nocache": 105.94009743589743
+    },
+    {
+     "tasks_per_day": 11900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.715401970288461,
+     "api_deepinfra": 31.43884355351923,
+     "api_together_nocache": 106.83789487179487
+    },
+    {
+     "tasks_per_day": 12000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.788640642307692,
+     "api_deepinfra": 31.703035516153843,
+     "api_together_nocache": 107.7356923076923
+    },
+    {
+     "tasks_per_day": 12100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.861879314326924,
+     "api_deepinfra": 31.96722747878846,
+     "api_together_nocache": 108.63348974358973
+    },
+    {
+     "tasks_per_day": 12200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.935117986346155,
+     "api_deepinfra": 32.23141944142308,
+     "api_together_nocache": 109.53128717948718
+    },
+    {
+     "tasks_per_day": 12300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.008356658365384,
+     "api_deepinfra": 32.49561140405769,
+     "api_together_nocache": 110.42908461538461
+    },
+    {
+     "tasks_per_day": 12400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.081595330384616,
+     "api_deepinfra": 32.7598033666923,
+     "api_together_nocache": 111.32688205128204
+    },
+    {
+     "tasks_per_day": 12500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.154834002403847,
+     "api_deepinfra": 33.02399532932692,
+     "api_together_nocache": 112.22467948717949
+    },
+    {
+     "tasks_per_day": 12600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.228072674423077,
+     "api_deepinfra": 33.288187291961535,
+     "api_together_nocache": 113.12247692307692
+    },
+    {
+     "tasks_per_day": 12700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.301311346442308,
+     "api_deepinfra": 33.552379254596154,
+     "api_together_nocache": 114.02027435897435
+    },
+    {
+     "tasks_per_day": 12800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.37455001846154,
+     "api_deepinfra": 33.816571217230766,
+     "api_together_nocache": 114.91807179487179
+    },
+    {
+     "tasks_per_day": 12900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.44778869048077,
+     "api_deepinfra": 34.080763179865386,
+     "api_together_nocache": 115.81586923076922
+    },
+    {
+     "tasks_per_day": 13000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.5210273625,
+     "api_deepinfra": 34.3449551425,
+     "api_together_nocache": 116.71366666666667
+    },
+    {
+     "tasks_per_day": 13100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.594266034519231,
+     "api_deepinfra": 34.60914710513461,
+     "api_together_nocache": 117.6114641025641
+    }
+   ]
+  },
+  "medium": {
+   "success_rate": 0.975,
+   "steps": 9.675,
+   "in_tok": 27923.4358974359,
+   "cache_hit": 0.9446850000000001,
+   "out_tok": 1694.871794871795,
+   "reason_tok": 956.875,
+   "s_per_success": 115.58512820512821,
+   "cap_per_hr": 131.8393946519604,
+   "cap_per_day": 3164.1454716470494,
+   "cap_measured": false,
+   "api_cost_per_task": {
+    "doubleword": 0.0009760518189999997,
+    "deepinfra": 0.0035523756524769223,
+    "together_nocache": 0.012315510256410256
+   },
+   "self_host": {
+    "spot": {
+     "gpu_per_day": 10.152,
+     "per_task_by_util": {
+      "0.25": 0.012833796790911164,
+      "0.5": 0.006416898395455582,
+      "0.75": 0.004277932263637055,
+      "1.0": 0.003208449197727791
+     },
+     "breakeven": {
+      "doubleword": {
+       "tasks_per_day": 10401.087116871611,
+       "util_needed": 3.2871709629258854,
+       "one_gpu_wins": false
+      },
+      "deepinfra": {
+       "tasks_per_day": 2857.8058722256574,
+       "util_needed": 0.9031840975181424,
+       "one_gpu_wins": true
+      },
+      "together_nocache": {
+       "tasks_per_day": 824.3263810133938,
+       "util_needed": 0.2605210121974268,
+       "one_gpu_wins": true
+      }
+     }
+    },
+    "on_demand": {
+     "gpu_per_day": 16.968,
+     "per_task_by_util": {
+      "0.25": 0.021450341208449634,
+      "0.5": 0.010725170604224817,
+      "0.75": 0.007150113736149877,
+      "1.0": 0.0053625853021124084
+     },
+     "breakeven": {
+      "doubleword": {
+       "tasks_per_day": 17384.322911650663,
+       "util_needed": 5.494160451036882,
+       "one_gpu_wins": false
+      },
+      "deepinfra": {
+       "tasks_per_day": 4776.521871545011,
+       "util_needed": 1.5095772031804413,
+       "one_gpu_wins": false
+      },
+      "together_nocache": {
+       "tasks_per_day": 1377.7748259491002,
+       "util_needed": 0.4354334648311602,
+       "one_gpu_wins": true
+      }
+     }
+    }
+   },
+   "curve": [
+    {
+     "tasks_per_day": 0,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.0,
+     "api_deepinfra": 0.0,
+     "api_together_nocache": 0.0
+    },
+    {
+     "tasks_per_day": 100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.09760518189999996,
+     "api_deepinfra": 0.35523756524769223,
+     "api_together_nocache": 1.2315510256410256
+    },
+    {
+     "tasks_per_day": 200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.19521036379999993,
+     "api_deepinfra": 0.7104751304953845,
+     "api_together_nocache": 2.463102051282051
+    },
+    {
+     "tasks_per_day": 300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.2928155456999999,
+     "api_deepinfra": 1.0657126957430767,
+     "api_together_nocache": 3.6946530769230765
+    },
+    {
+     "tasks_per_day": 400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.39042072759999985,
+     "api_deepinfra": 1.420950260990769,
+     "api_together_nocache": 4.926204102564102
+    },
+    {
+     "tasks_per_day": 500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.48802590949999985,
+     "api_deepinfra": 1.7761878262384612,
+     "api_together_nocache": 6.157755128205128
+    },
+    {
+     "tasks_per_day": 600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.5856310913999998,
+     "api_deepinfra": 2.1314253914861534,
+     "api_together_nocache": 7.389306153846153
+    },
+    {
+     "tasks_per_day": 700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.6832362732999998,
+     "api_deepinfra": 2.4866629567338454,
+     "api_together_nocache": 8.62085717948718
+    },
+    {
+     "tasks_per_day": 800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.7808414551999997,
+     "api_deepinfra": 2.841900521981538,
+     "api_together_nocache": 9.852408205128205
+    },
+    {
+     "tasks_per_day": 900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.8784466370999997,
+     "api_deepinfra": 3.19713808722923,
+     "api_together_nocache": 11.08395923076923
+    },
+    {
+     "tasks_per_day": 1000,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.9760518189999997,
+     "api_deepinfra": 3.5523756524769223,
+     "api_together_nocache": 12.315510256410256
+    },
+    {
+     "tasks_per_day": 1100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.0736570008999997,
+     "api_deepinfra": 3.9076132177246143,
+     "api_together_nocache": 13.547061282051281
+    },
+    {
+     "tasks_per_day": 1200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.1712621827999996,
+     "api_deepinfra": 4.262850782972307,
+     "api_together_nocache": 14.778612307692306
+    },
+    {
+     "tasks_per_day": 1300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.2688673646999995,
+     "api_deepinfra": 4.618088348219999,
+     "api_together_nocache": 16.01016333333333
+    },
+    {
+     "tasks_per_day": 1400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.3664725465999996,
+     "api_deepinfra": 4.973325913467691,
+     "api_together_nocache": 17.24171435897436
+    },
+    {
+     "tasks_per_day": 1500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.4640777284999995,
+     "api_deepinfra": 5.328563478715384,
+     "api_together_nocache": 18.473265384615384
+    },
+    {
+     "tasks_per_day": 1600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.5616829103999994,
+     "api_deepinfra": 5.683801043963076,
+     "api_together_nocache": 19.70481641025641
+    },
+    {
+     "tasks_per_day": 1700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.6592880922999995,
+     "api_deepinfra": 6.039038609210768,
+     "api_together_nocache": 20.936367435897434
+    },
+    {
+     "tasks_per_day": 1800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.7568932741999994,
+     "api_deepinfra": 6.39427617445846,
+     "api_together_nocache": 22.16791846153846
+    },
+    {
+     "tasks_per_day": 1900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.8544984560999993,
+     "api_deepinfra": 6.749513739706153,
+     "api_together_nocache": 23.399469487179488
+    },
+    {
+     "tasks_per_day": 2000,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.9521036379999994,
+     "api_deepinfra": 7.104751304953845,
+     "api_together_nocache": 24.631020512820513
+    },
+    {
+     "tasks_per_day": 2100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.0497088198999993,
+     "api_deepinfra": 7.459988870201537,
+     "api_together_nocache": 25.862571538461538
+    },
+    {
+     "tasks_per_day": 2200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.1473140017999994,
+     "api_deepinfra": 7.815226435449229,
+     "api_together_nocache": 27.094122564102562
+    },
+    {
+     "tasks_per_day": 2300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.244919183699999,
+     "api_deepinfra": 8.17046400069692,
+     "api_together_nocache": 28.325673589743587
+    },
+    {
+     "tasks_per_day": 2400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.342524365599999,
+     "api_deepinfra": 8.525701565944614,
+     "api_together_nocache": 29.557224615384612
+    },
+    {
+     "tasks_per_day": 2500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.4401295474999993,
+     "api_deepinfra": 8.880939131192306,
+     "api_together_nocache": 30.78877564102564
+    },
+    {
+     "tasks_per_day": 2600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.537734729399999,
+     "api_deepinfra": 9.236176696439998,
+     "api_together_nocache": 32.02032666666666
+    },
+    {
+     "tasks_per_day": 2700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.635339911299999,
+     "api_deepinfra": 9.59141426168769,
+     "api_together_nocache": 33.251877692307694
+    },
+    {
+     "tasks_per_day": 2800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.7329450931999992,
+     "api_deepinfra": 9.946651826935382,
+     "api_together_nocache": 34.48342871794872
+    },
+    {
+     "tasks_per_day": 2900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.830550275099999,
+     "api_deepinfra": 10.301889392183075,
+     "api_together_nocache": 35.714979743589744
+    },
+    {
+     "tasks_per_day": 3000,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.928155456999999,
+     "api_deepinfra": 10.657126957430767,
+     "api_together_nocache": 36.94653076923077
+    },
+    {
+     "tasks_per_day": 3100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 3.025760638899999,
+     "api_deepinfra": 11.012364522678459,
+     "api_together_nocache": 38.178081794871794
+    },
+    {
+     "tasks_per_day": 3200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.123365820799999,
+     "api_deepinfra": 11.367602087926151,
+     "api_together_nocache": 39.40963282051282
+    },
+    {
+     "tasks_per_day": 3300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.220971002699999,
+     "api_deepinfra": 11.722839653173844,
+     "api_together_nocache": 40.641183846153844
+    },
+    {
+     "tasks_per_day": 3400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.318576184599999,
+     "api_deepinfra": 12.078077218421535,
+     "api_together_nocache": 41.87273487179487
+    },
+    {
+     "tasks_per_day": 3500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.4161813664999987,
+     "api_deepinfra": 12.433314783669228,
+     "api_together_nocache": 43.104285897435894
+    },
+    {
+     "tasks_per_day": 3600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.513786548399999,
+     "api_deepinfra": 12.78855234891692,
+     "api_together_nocache": 44.33583692307692
+    },
+    {
+     "tasks_per_day": 3700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.611391730299999,
+     "api_deepinfra": 13.143789914164612,
+     "api_together_nocache": 45.56738794871794
+    },
+    {
+     "tasks_per_day": 3800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.7089969121999986,
+     "api_deepinfra": 13.499027479412305,
+     "api_together_nocache": 46.798938974358975
+    },
+    {
+     "tasks_per_day": 3900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.8066020940999987,
+     "api_deepinfra": 13.854265044659996,
+     "api_together_nocache": 48.03049
+    },
+    {
+     "tasks_per_day": 4000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.904207275999999,
+     "api_deepinfra": 14.20950260990769,
+     "api_together_nocache": 49.262041025641025
+    },
+    {
+     "tasks_per_day": 4100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.001812457899999,
+     "api_deepinfra": 14.564740175155382,
+     "api_together_nocache": 50.49359205128205
+    },
+    {
+     "tasks_per_day": 4200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.099417639799999,
+     "api_deepinfra": 14.919977740403073,
+     "api_together_nocache": 51.725143076923075
+    },
+    {
+     "tasks_per_day": 4300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.197022821699998,
+     "api_deepinfra": 15.275215305650766,
+     "api_together_nocache": 52.9566941025641
+    },
+    {
+     "tasks_per_day": 4400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.294628003599999,
+     "api_deepinfra": 15.630452870898457,
+     "api_together_nocache": 54.188245128205125
+    },
+    {
+     "tasks_per_day": 4500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.3922331854999985,
+     "api_deepinfra": 15.98569043614615,
+     "api_together_nocache": 55.41979615384615
+    },
+    {
+     "tasks_per_day": 4600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.489838367399998,
+     "api_deepinfra": 16.34092800139384,
+     "api_together_nocache": 56.651347179487175
+    },
+    {
+     "tasks_per_day": 4700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.587443549299999,
+     "api_deepinfra": 16.696165566641536,
+     "api_together_nocache": 57.8828982051282
+    },
+    {
+     "tasks_per_day": 4800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.685048731199998,
+     "api_deepinfra": 17.051403131889227,
+     "api_together_nocache": 59.114449230769225
+    },
+    {
+     "tasks_per_day": 4900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.782653913099998,
+     "api_deepinfra": 17.40664069713692,
+     "api_together_nocache": 60.34600025641026
+    },
+    {
+     "tasks_per_day": 5000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.880259094999999,
+     "api_deepinfra": 17.761878262384613,
+     "api_together_nocache": 61.57755128205128
+    },
+    {
+     "tasks_per_day": 5100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.977864276899998,
+     "api_deepinfra": 18.117115827632304,
+     "api_together_nocache": 62.80910230769231
+    },
+    {
+     "tasks_per_day": 5200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.075469458799998,
+     "api_deepinfra": 18.472353392879995,
+     "api_together_nocache": 64.04065333333332
+    },
+    {
+     "tasks_per_day": 5300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.173074640699999,
+     "api_deepinfra": 18.82759095812769,
+     "api_together_nocache": 65.27220435897435
+    },
+    {
+     "tasks_per_day": 5400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.270679822599998,
+     "api_deepinfra": 19.18282852337538,
+     "api_together_nocache": 66.50375538461539
+    },
+    {
+     "tasks_per_day": 5500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.368285004499998,
+     "api_deepinfra": 19.538066088623072,
+     "api_together_nocache": 67.73530641025641
+    },
+    {
+     "tasks_per_day": 5600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.4658901863999985,
+     "api_deepinfra": 19.893303653870763,
+     "api_together_nocache": 68.96685743589744
+    },
+    {
+     "tasks_per_day": 5700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.563495368299998,
+     "api_deepinfra": 20.248541219118458,
+     "api_together_nocache": 70.19840846153846
+    },
+    {
+     "tasks_per_day": 5800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.661100550199998,
+     "api_deepinfra": 20.60377878436615,
+     "api_together_nocache": 71.42995948717949
+    },
+    {
+     "tasks_per_day": 5900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.758705732099998,
+     "api_deepinfra": 20.95901634961384,
+     "api_together_nocache": 72.66151051282051
+    },
+    {
+     "tasks_per_day": 6000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.856310913999998,
+     "api_deepinfra": 21.314253914861535,
+     "api_together_nocache": 73.89306153846154
+    },
+    {
+     "tasks_per_day": 6100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.953916095899998,
+     "api_deepinfra": 21.669491480109226,
+     "api_together_nocache": 75.12461256410256
+    },
+    {
+     "tasks_per_day": 6200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 6.051521277799998,
+     "api_deepinfra": 22.024729045356917,
+     "api_together_nocache": 76.35616358974359
+    },
+    {
+     "tasks_per_day": 6300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 6.149126459699998,
+     "api_deepinfra": 22.379966610604612,
+     "api_together_nocache": 77.58771461538461
+    },
+    {
+     "tasks_per_day": 6400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.246731641599998,
+     "api_deepinfra": 22.735204175852303,
+     "api_together_nocache": 78.81926564102564
+    },
+    {
+     "tasks_per_day": 6500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.344336823499998,
+     "api_deepinfra": 23.090441741099994,
+     "api_together_nocache": 80.05081666666666
+    },
+    {
+     "tasks_per_day": 6600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.441942005399998,
+     "api_deepinfra": 23.44567930634769,
+     "api_together_nocache": 81.28236769230769
+    },
+    {
+     "tasks_per_day": 6700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.5395471872999975,
+     "api_deepinfra": 23.80091687159538,
+     "api_together_nocache": 82.51391871794871
+    },
+    {
+     "tasks_per_day": 6800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.637152369199998,
+     "api_deepinfra": 24.15615443684307,
+     "api_together_nocache": 83.74546974358974
+    },
+    {
+     "tasks_per_day": 6900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.734757551099998,
+     "api_deepinfra": 24.511392002090762,
+     "api_together_nocache": 84.97702076923076
+    },
+    {
+     "tasks_per_day": 7000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.832362732999997,
+     "api_deepinfra": 24.866629567338457,
+     "api_together_nocache": 86.20857179487179
+    },
+    {
+     "tasks_per_day": 7100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.929967914899998,
+     "api_deepinfra": 25.221867132586148,
+     "api_together_nocache": 87.44012282051281
+    },
+    {
+     "tasks_per_day": 7200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.027573096799998,
+     "api_deepinfra": 25.57710469783384,
+     "api_together_nocache": 88.67167384615384
+    },
+    {
+     "tasks_per_day": 7300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.125178278699997,
+     "api_deepinfra": 25.932342263081534,
+     "api_together_nocache": 89.90322487179486
+    },
+    {
+     "tasks_per_day": 7400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.222783460599998,
+     "api_deepinfra": 26.287579828329225,
+     "api_together_nocache": 91.13477589743589
+    },
+    {
+     "tasks_per_day": 7500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.3203886424999975,
+     "api_deepinfra": 26.642817393576916,
+     "api_together_nocache": 92.36632692307693
+    },
+    {
+     "tasks_per_day": 7600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.417993824399997,
+     "api_deepinfra": 26.99805495882461,
+     "api_together_nocache": 93.59787794871795
+    },
+    {
+     "tasks_per_day": 7700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.515599006299998,
+     "api_deepinfra": 27.3532925240723,
+     "api_together_nocache": 94.82942897435898
+    },
+    {
+     "tasks_per_day": 7800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.6132041881999974,
+     "api_deepinfra": 27.708530089319993,
+     "api_together_nocache": 96.06098
+    },
+    {
+     "tasks_per_day": 7900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.710809370099997,
+     "api_deepinfra": 28.063767654567688,
+     "api_together_nocache": 97.29253102564103
+    },
+    {
+     "tasks_per_day": 8000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.808414551999998,
+     "api_deepinfra": 28.41900521981538,
+     "api_together_nocache": 98.52408205128205
+    },
+    {
+     "tasks_per_day": 8100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.906019733899997,
+     "api_deepinfra": 28.77424278506307,
+     "api_together_nocache": 99.75563307692308
+    },
+    {
+     "tasks_per_day": 8200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.003624915799998,
+     "api_deepinfra": 29.129480350310764,
+     "api_together_nocache": 100.9871841025641
+    },
+    {
+     "tasks_per_day": 8300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.101230097699997,
+     "api_deepinfra": 29.484717915558456,
+     "api_together_nocache": 102.21873512820513
+    },
+    {
+     "tasks_per_day": 8400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.198835279599997,
+     "api_deepinfra": 29.839955480806147,
+     "api_together_nocache": 103.45028615384615
+    },
+    {
+     "tasks_per_day": 8500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.296440461499998,
+     "api_deepinfra": 30.195193046053838,
+     "api_together_nocache": 104.68183717948718
+    },
+    {
+     "tasks_per_day": 8600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.394045643399997,
+     "api_deepinfra": 30.550430611301532,
+     "api_together_nocache": 105.9133882051282
+    },
+    {
+     "tasks_per_day": 8700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.491650825299997,
+     "api_deepinfra": 30.905668176549224,
+     "api_together_nocache": 107.14493923076922
+    },
+    {
+     "tasks_per_day": 8800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.589256007199998,
+     "api_deepinfra": 31.260905741796915,
+     "api_together_nocache": 108.37649025641025
+    },
+    {
+     "tasks_per_day": 8900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.686861189099996,
+     "api_deepinfra": 31.61614330704461,
+     "api_together_nocache": 109.60804128205127
+    },
+    {
+     "tasks_per_day": 9000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.784466370999997,
+     "api_deepinfra": 31.9713808722923,
+     "api_together_nocache": 110.8395923076923
+    },
+    {
+     "tasks_per_day": 9100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.882071552899998,
+     "api_deepinfra": 32.32661843753999,
+     "api_together_nocache": 112.07114333333332
+    },
+    {
+     "tasks_per_day": 9200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.979676734799996,
+     "api_deepinfra": 32.68185600278768,
+     "api_together_nocache": 113.30269435897435
+    },
+    {
+     "tasks_per_day": 9300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.077281916699997,
+     "api_deepinfra": 33.037093568035374,
+     "api_together_nocache": 114.53424538461537
+    },
+    {
+     "tasks_per_day": 9400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.174887098599998,
+     "api_deepinfra": 33.39233113328307,
+     "api_together_nocache": 115.7657964102564
+    }
+   ]
+  },
+  "high": {
+   "success_rate": 0.975,
+   "steps": 9.75,
+   "in_tok": 29106.153846153848,
+   "cache_hit": 0.9427424999999998,
+   "out_tok": 1808.128205128205,
+   "reason_tok": 1047.3,
+   "s_per_success": 122.93717948717946,
+   "cap_per_hr": 123.95496136238025,
+   "cap_per_day": 2974.919072697126,
+   "cap_measured": false,
+   "api_cost_per_task": {
+    "doubleword": 0.00103631712448718,
+    "deepinfra": 0.003767301857000001,
+    "together_nocache": 0.012899346153846152
+   },
+   "self_host": {
+    "spot": {
+     "gpu_per_day": 10.152,
+     "per_task_by_util": {
+      "0.25": 0.013650119215909933,
+      "0.5": 0.006825059607954966,
+      "0.75": 0.0045500397386366445,
+      "1.0": 0.003412529803977483
+     },
+     "breakeven": {
+      "doubleword": {
+       "tasks_per_day": 9796.229127279645,
+       "util_needed": 3.292939702859941,
+       "one_gpu_wins": false
+      },
+      "deepinfra": {
+       "tasks_per_day": 2694.7668080105204,
+       "util_needed": 0.9058286098409348,
+       "one_gpu_wins": true
+      },
+      "together_nocache": {
+       "tasks_per_day": 787.016634713149,
+       "util_needed": 0.2645506030520765,
+       "one_gpu_wins": true
+      }
+     }
+    },
+    "on_demand": {
+     "gpu_per_day": 16.968,
+     "per_task_by_util": {
+      "0.25": 0.022814738263944027,
+      "0.5": 0.011407369131972014,
+      "0.75": 0.007604912754648009,
+      "1.0": 0.005703684565986007
+     },
+     "breakeven": {
+      "doubleword": {
+       "tasks_per_day": 16373.366413680165,
+       "util_needed": 5.50380229295976,
+       "one_gpu_wins": false
+      },
+      "deepinfra": {
+       "tasks_per_day": 4504.01922757314,
+       "util_needed": 1.5139972273227917,
+       "one_gpu_wins": false
+      },
+      "together_nocache": {
+       "tasks_per_day": 1315.4155100288328,
+       "util_needed": 0.4421685020279388,
+       "one_gpu_wins": true
+      }
+     }
+    }
+   },
+   "curve": [
+    {
+     "tasks_per_day": 0,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.0,
+     "api_deepinfra": 0.0,
+     "api_together_nocache": 0.0
+    },
+    {
+     "tasks_per_day": 100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.10363171244871801,
+     "api_deepinfra": 0.3767301857000001,
+     "api_together_nocache": 1.2899346153846152
+    },
+    {
+     "tasks_per_day": 200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.20726342489743602,
+     "api_deepinfra": 0.7534603714000002,
+     "api_together_nocache": 2.5798692307692304
+    },
+    {
+     "tasks_per_day": 300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.31089513734615404,
+     "api_deepinfra": 1.1301905571000004,
+     "api_together_nocache": 3.8698038461538458
+    },
+    {
+     "tasks_per_day": 400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.41452684979487203,
+     "api_deepinfra": 1.5069207428000004,
+     "api_together_nocache": 5.159738461538461
+    },
+    {
+     "tasks_per_day": 500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.51815856224359,
+     "api_deepinfra": 1.8836509285000005,
+     "api_together_nocache": 6.449673076923076
+    },
+    {
+     "tasks_per_day": 600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.6217902746923081,
+     "api_deepinfra": 2.2603811142000008,
+     "api_together_nocache": 7.7396076923076915
+    },
+    {
+     "tasks_per_day": 700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.725421987141026,
+     "api_deepinfra": 2.637111299900001,
+     "api_together_nocache": 9.029542307692306
+    },
+    {
+     "tasks_per_day": 800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.8290536995897441,
+     "api_deepinfra": 3.013841485600001,
+     "api_together_nocache": 10.319476923076921
+    },
+    {
+     "tasks_per_day": 900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.932685412038462,
+     "api_deepinfra": 3.390571671300001,
+     "api_together_nocache": 11.609411538461536
+    },
+    {
+     "tasks_per_day": 1000,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.03631712448718,
+     "api_deepinfra": 3.767301857000001,
+     "api_together_nocache": 12.899346153846151
+    },
+    {
+     "tasks_per_day": 1100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.139948836935898,
+     "api_deepinfra": 4.144032042700001,
+     "api_together_nocache": 14.189280769230766
+    },
+    {
+     "tasks_per_day": 1200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.2435805493846162,
+     "api_deepinfra": 4.5207622284000015,
+     "api_together_nocache": 15.479215384615383
+    },
+    {
+     "tasks_per_day": 1300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.347212261833334,
+     "api_deepinfra": 4.897492414100001,
+     "api_together_nocache": 16.769149999999996
+    },
+    {
+     "tasks_per_day": 1400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.450843974282052,
+     "api_deepinfra": 5.274222599800002,
+     "api_together_nocache": 18.059084615384613
+    },
+    {
+     "tasks_per_day": 1500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.55447568673077,
+     "api_deepinfra": 5.650952785500002,
+     "api_together_nocache": 19.349019230769226
+    },
+    {
+     "tasks_per_day": 1600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.6581073991794881,
+     "api_deepinfra": 6.027682971200002,
+     "api_together_nocache": 20.638953846153843
+    },
+    {
+     "tasks_per_day": 1700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.761739111628206,
+     "api_deepinfra": 6.404413156900002,
+     "api_together_nocache": 21.92888846153846
+    },
+    {
+     "tasks_per_day": 1800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.865370824076924,
+     "api_deepinfra": 6.781143342600002,
+     "api_together_nocache": 23.218823076923073
+    },
+    {
+     "tasks_per_day": 1900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.969002536525642,
+     "api_deepinfra": 7.157873528300002,
+     "api_together_nocache": 24.50875769230769
+    },
+    {
+     "tasks_per_day": 2000,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.07263424897436,
+     "api_deepinfra": 7.534603714000002,
+     "api_together_nocache": 25.798692307692303
+    },
+    {
+     "tasks_per_day": 2100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.176265961423078,
+     "api_deepinfra": 7.9113338997000024,
+     "api_together_nocache": 27.08862692307692
+    },
+    {
+     "tasks_per_day": 2200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.279897673871796,
+     "api_deepinfra": 8.288064085400002,
+     "api_together_nocache": 28.378561538461533
+    },
+    {
+     "tasks_per_day": 2300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.383529386320514,
+     "api_deepinfra": 8.664794271100003,
+     "api_together_nocache": 29.66849615384615
+    },
+    {
+     "tasks_per_day": 2400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.4871610987692323,
+     "api_deepinfra": 9.041524456800003,
+     "api_together_nocache": 30.958430769230766
+    },
+    {
+     "tasks_per_day": 2500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.59079281121795,
+     "api_deepinfra": 9.418254642500003,
+     "api_together_nocache": 32.24836538461538
+    },
+    {
+     "tasks_per_day": 2600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.694424523666668,
+     "api_deepinfra": 9.794984828200002,
+     "api_together_nocache": 33.53829999999999
+    },
+    {
+     "tasks_per_day": 2700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.7980562361153862,
+     "api_deepinfra": 10.171715013900004,
+     "api_together_nocache": 34.82823461538461
+    },
+    {
+     "tasks_per_day": 2800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.901687948564104,
+     "api_deepinfra": 10.548445199600003,
+     "api_together_nocache": 36.118169230769226
+    },
+    {
+     "tasks_per_day": 2900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 3.005319661012822,
+     "api_deepinfra": 10.925175385300003,
+     "api_together_nocache": 37.40810384615384
+    },
+    {
+     "tasks_per_day": 3000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.10895137346154,
+     "api_deepinfra": 11.301905571000004,
+     "api_together_nocache": 38.69803846153845
+    },
+    {
+     "tasks_per_day": 3100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.212583085910258,
+     "api_deepinfra": 11.678635756700004,
+     "api_together_nocache": 39.98797307692307
+    },
+    {
+     "tasks_per_day": 3200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.3162147983589763,
+     "api_deepinfra": 12.055365942400003,
+     "api_together_nocache": 41.277907692307686
+    },
+    {
+     "tasks_per_day": 3300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.419846510807694,
+     "api_deepinfra": 12.432096128100003,
+     "api_together_nocache": 42.5678423076923
+    },
+    {
+     "tasks_per_day": 3400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.523478223256412,
+     "api_deepinfra": 12.808826313800004,
+     "api_together_nocache": 43.85777692307692
+    },
+    {
+     "tasks_per_day": 3500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.62710993570513,
+     "api_deepinfra": 13.185556499500004,
+     "api_together_nocache": 45.14771153846153
+    },
+    {
+     "tasks_per_day": 3600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.730741648153848,
+     "api_deepinfra": 13.562286685200004,
+     "api_together_nocache": 46.437646153846146
+    },
+    {
+     "tasks_per_day": 3700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.8343733606025663,
+     "api_deepinfra": 13.939016870900005,
+     "api_together_nocache": 47.72758076923076
+    },
+    {
+     "tasks_per_day": 3800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.938005073051284,
+     "api_deepinfra": 14.315747056600005,
+     "api_together_nocache": 49.01751538461538
+    },
+    {
+     "tasks_per_day": 3900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.041636785500002,
+     "api_deepinfra": 14.692477242300004,
+     "api_together_nocache": 50.307449999999996
+    },
+    {
+     "tasks_per_day": 4000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.14526849794872,
+     "api_deepinfra": 15.069207428000004,
+     "api_together_nocache": 51.597384615384605
+    },
+    {
+     "tasks_per_day": 4100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.248900210397438,
+     "api_deepinfra": 15.445937613700005,
+     "api_together_nocache": 52.88731923076922
+    },
+    {
+     "tasks_per_day": 4200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.352531922846156,
+     "api_deepinfra": 15.822667799400005,
+     "api_together_nocache": 54.17725384615384
+    },
+    {
+     "tasks_per_day": 4300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.456163635294875,
+     "api_deepinfra": 16.199397985100006,
+     "api_together_nocache": 55.467188461538456
+    },
+    {
+     "tasks_per_day": 4400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.559795347743592,
+     "api_deepinfra": 16.576128170800004,
+     "api_together_nocache": 56.757123076923065
+    },
+    {
+     "tasks_per_day": 4500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.66342706019231,
+     "api_deepinfra": 16.952858356500005,
+     "api_together_nocache": 58.04705769230768
+    },
+    {
+     "tasks_per_day": 4600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.767058772641028,
+     "api_deepinfra": 17.329588542200007,
+     "api_together_nocache": 59.3369923076923
+    },
+    {
+     "tasks_per_day": 4700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.870690485089746,
+     "api_deepinfra": 17.706318727900005,
+     "api_together_nocache": 60.626926923076915
+    },
+    {
+     "tasks_per_day": 4800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.974322197538465,
+     "api_deepinfra": 18.083048913600006,
+     "api_together_nocache": 61.91686153846153
+    },
+    {
+     "tasks_per_day": 4900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.077953909987182,
+     "api_deepinfra": 18.459779099300004,
+     "api_together_nocache": 63.20679615384614
+    },
+    {
+     "tasks_per_day": 5000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.1815856224359,
+     "api_deepinfra": 18.836509285000005,
+     "api_together_nocache": 64.49673076923077
+    },
+    {
+     "tasks_per_day": 5100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.285217334884618,
+     "api_deepinfra": 19.213239470700007,
+     "api_together_nocache": 65.78666538461538
+    },
+    {
+     "tasks_per_day": 5200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.388849047333336,
+     "api_deepinfra": 19.589969656400005,
+     "api_together_nocache": 67.07659999999998
+    },
+    {
+     "tasks_per_day": 5300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.492480759782055,
+     "api_deepinfra": 19.966699842100006,
+     "api_together_nocache": 68.36653461538461
+    },
+    {
+     "tasks_per_day": 5400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.5961124722307725,
+     "api_deepinfra": 20.343430027800007,
+     "api_together_nocache": 69.65646923076922
+    },
+    {
+     "tasks_per_day": 5500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.69974418467949,
+     "api_deepinfra": 20.720160213500005,
+     "api_together_nocache": 70.94640384615384
+    },
+    {
+     "tasks_per_day": 5600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.803375897128208,
+     "api_deepinfra": 21.096890399200007,
+     "api_together_nocache": 72.23633846153845
+    },
+    {
+     "tasks_per_day": 5700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.907007609576926,
+     "api_deepinfra": 21.473620584900008,
+     "api_together_nocache": 73.52627307692306
+    },
+    {
+     "tasks_per_day": 5800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 6.010639322025644,
+     "api_deepinfra": 21.850350770600006,
+     "api_together_nocache": 74.81620769230769
+    },
+    {
+     "tasks_per_day": 5900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 6.1142710344743625,
+     "api_deepinfra": 22.227080956300007,
+     "api_together_nocache": 76.1061423076923
+    },
+    {
+     "tasks_per_day": 6000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.21790274692308,
+     "api_deepinfra": 22.60381114200001,
+     "api_together_nocache": 77.3960769230769
+    },
+    {
+     "tasks_per_day": 6100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.321534459371798,
+     "api_deepinfra": 22.980541327700006,
+     "api_together_nocache": 78.68601153846153
+    },
+    {
+     "tasks_per_day": 6200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.425166171820516,
+     "api_deepinfra": 23.357271513400008,
+     "api_together_nocache": 79.97594615384614
+    },
+    {
+     "tasks_per_day": 6300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.528797884269234,
+     "api_deepinfra": 23.734001699100006,
+     "api_together_nocache": 81.26588076923076
+    },
+    {
+     "tasks_per_day": 6400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.6324295967179525,
+     "api_deepinfra": 24.110731884800007,
+     "api_together_nocache": 82.55581538461537
+    },
+    {
+     "tasks_per_day": 6500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.73606130916667,
+     "api_deepinfra": 24.48746207050001,
+     "api_together_nocache": 83.84574999999998
+    },
+    {
+     "tasks_per_day": 6600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.839693021615388,
+     "api_deepinfra": 24.864192256200006,
+     "api_together_nocache": 85.1356846153846
+    },
+    {
+     "tasks_per_day": 6700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.943324734064106,
+     "api_deepinfra": 25.240922441900008,
+     "api_together_nocache": 86.42561923076921
+    },
+    {
+     "tasks_per_day": 6800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.046956446512824,
+     "api_deepinfra": 25.61765262760001,
+     "api_together_nocache": 87.71555384615384
+    },
+    {
+     "tasks_per_day": 6900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.1505881589615425,
+     "api_deepinfra": 25.994382813300007,
+     "api_together_nocache": 89.00548846153845
+    },
+    {
+     "tasks_per_day": 7000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.25421987141026,
+     "api_deepinfra": 26.371112999000008,
+     "api_together_nocache": 90.29542307692306
+    },
+    {
+     "tasks_per_day": 7100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.357851583858978,
+     "api_deepinfra": 26.74784318470001,
+     "api_together_nocache": 91.58535769230768
+    },
+    {
+     "tasks_per_day": 7200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.461483296307696,
+     "api_deepinfra": 27.124573370400007,
+     "api_together_nocache": 92.87529230769229
+    },
+    {
+     "tasks_per_day": 7300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.565115008756414,
+     "api_deepinfra": 27.50130355610001,
+     "api_together_nocache": 94.16522692307691
+    },
+    {
+     "tasks_per_day": 7400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.668746721205133,
+     "api_deepinfra": 27.87803374180001,
+     "api_together_nocache": 95.45516153846152
+    },
+    {
+     "tasks_per_day": 7500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.77237843365385,
+     "api_deepinfra": 28.254763927500008,
+     "api_together_nocache": 96.74509615384613
+    },
+    {
+     "tasks_per_day": 7600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.876010146102568,
+     "api_deepinfra": 28.63149411320001,
+     "api_together_nocache": 98.03503076923076
+    },
+    {
+     "tasks_per_day": 7700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.979641858551286,
+     "api_deepinfra": 29.008224298900007,
+     "api_together_nocache": 99.32496538461537
+    },
+    {
+     "tasks_per_day": 7800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.083273571000005,
+     "api_deepinfra": 29.38495448460001,
+     "api_together_nocache": 100.61489999999999
+    },
+    {
+     "tasks_per_day": 7900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.186905283448722,
+     "api_deepinfra": 29.76168467030001,
+     "api_together_nocache": 101.9048346153846
+    },
+    {
+     "tasks_per_day": 8000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.29053699589744,
+     "api_deepinfra": 30.138414856000008,
+     "api_together_nocache": 103.19476923076921
+    },
+    {
+     "tasks_per_day": 8100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.39416870834616,
+     "api_deepinfra": 30.51514504170001,
+     "api_together_nocache": 104.48470384615383
+    },
+    {
+     "tasks_per_day": 8200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.497800420794876,
+     "api_deepinfra": 30.89187522740001,
+     "api_together_nocache": 105.77463846153844
+    },
+    {
+     "tasks_per_day": 8300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.601432133243595,
+     "api_deepinfra": 31.26860541310001,
+     "api_together_nocache": 107.06457307692305
+    },
+    {
+     "tasks_per_day": 8400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.705063845692312,
+     "api_deepinfra": 31.64533559880001,
+     "api_together_nocache": 108.35450769230768
+    },
+    {
+     "tasks_per_day": 8500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.80869555814103,
+     "api_deepinfra": 32.02206578450001,
+     "api_together_nocache": 109.64444230769229
+    },
+    {
+     "tasks_per_day": 8600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.91232727058975,
+     "api_deepinfra": 32.39879597020001,
+     "api_together_nocache": 110.93437692307691
+    },
+    {
+     "tasks_per_day": 8700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.015958983038466,
+     "api_deepinfra": 32.77552615590001,
+     "api_together_nocache": 112.22431153846152
+    },
+    {
+     "tasks_per_day": 8800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.119590695487185,
+     "api_deepinfra": 33.15225634160001,
+     "api_together_nocache": 113.51424615384613
+    },
+    {
+     "tasks_per_day": 8900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.223222407935902,
+     "api_deepinfra": 33.52898652730001,
+     "api_together_nocache": 114.80418076923075
+    }
+   ]
+  },
+  "xhigh": {
+   "success_rate": 0.975,
+   "steps": 9.95,
+   "in_tok": 28863.615384615383,
+   "cache_hit": 0.9443125,
+   "out_tok": 1704.871794871795,
+   "reason_tok": 953.15,
+   "s_per_success": 116.33717948717945,
+   "cap_per_hr": 130.9871306877666,
+   "cap_per_day": 3143.691136506399,
+   "cap_measured": false,
+   "api_cost_per_task": {
+    "doubleword": 0.0009949293863782051,
+    "deepinfra": 0.003618299840480769,
+    "together_nocache": 0.012659573076923076
+   },
+   "self_host": {
+    "spot": {
+     "gpu_per_day": 10.152,
+     "per_task_by_util": {
+      "0.25": 0.01291729951725725,
+      "0.5": 0.006458649758628625,
+      "0.75": 0.0043057665057524164,
+      "1.0": 0.0032293248793143123
+     },
+     "breakeven": {
+      "doubleword": {
+       "tasks_per_day": 10203.739219077495,
+       "util_needed": 3.245782990760653,
+       "one_gpu_wins": false
+      },
+      "deepinfra": {
+       "tasks_per_day": 2805.7376247323627,
+       "util_needed": 0.8924978641032765,
+       "one_gpu_wins": true
+      },
+      "together_nocache": {
+       "tasks_per_day": 801.9227771990123,
+       "util_needed": 0.25508955631379027,
+       "one_gpu_wins": true
+      }
+     }
+    },
+    "on_demand": {
+     "gpu_per_day": 16.968,
+     "per_task_by_util": {
+      "0.25": 0.021589907230971338,
+      "0.5": 0.010794953615485669,
+      "0.75": 0.007196635743657112,
+      "1.0": 0.0053974768077428344
+     },
+     "breakeven": {
+      "doubleword": {
+       "tasks_per_day": 17054.476661673263,
+       "util_needed": 5.424984809616506,
+       "one_gpu_wins": false
+      },
+      "deepinfra": {
+       "tasks_per_day": 4689.495273488843,
+       "util_needed": 1.4917162882293535,
+       "one_gpu_wins": false
+      },
+      "together_nocache": {
+       "tasks_per_day": 1340.3295590536686,
+       "util_needed": 0.42635535771595684,
+       "one_gpu_wins": true
+      }
+     }
+    }
+   },
+   "curve": [
+    {
+     "tasks_per_day": 0,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.0,
+     "api_deepinfra": 0.0,
+     "api_together_nocache": 0.0
+    },
+    {
+     "tasks_per_day": 100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.09949293863782051,
+     "api_deepinfra": 0.36182998404807687,
+     "api_together_nocache": 1.2659573076923076
+    },
+    {
+     "tasks_per_day": 200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.19898587727564102,
+     "api_deepinfra": 0.7236599680961537,
+     "api_together_nocache": 2.5319146153846153
+    },
+    {
+     "tasks_per_day": 300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.29847881591346154,
+     "api_deepinfra": 1.0854899521442307,
+     "api_together_nocache": 3.7978719230769227
+    },
+    {
+     "tasks_per_day": 400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.39797175455128203,
+     "api_deepinfra": 1.4473199361923075,
+     "api_together_nocache": 5.0638292307692305
+    },
+    {
+     "tasks_per_day": 500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.4974646931891026,
+     "api_deepinfra": 1.8091499202403845,
+     "api_together_nocache": 6.329786538461538
+    },
+    {
+     "tasks_per_day": 600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.5969576318269231,
+     "api_deepinfra": 2.1709799042884614,
+     "api_together_nocache": 7.595743846153845
+    },
+    {
+     "tasks_per_day": 700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.6964505704647436,
+     "api_deepinfra": 2.5328098883365384,
+     "api_together_nocache": 8.861701153846154
+    },
+    {
+     "tasks_per_day": 800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.7959435091025641,
+     "api_deepinfra": 2.894639872384615,
+     "api_together_nocache": 10.127658461538461
+    },
+    {
+     "tasks_per_day": 900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.8954364477403846,
+     "api_deepinfra": 3.256469856432692,
+     "api_together_nocache": 11.393615769230768
+    },
+    {
+     "tasks_per_day": 1000,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 0.9949293863782052,
+     "api_deepinfra": 3.618299840480769,
+     "api_together_nocache": 12.659573076923076
+    },
+    {
+     "tasks_per_day": 1100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.0944223250160257,
+     "api_deepinfra": 3.980129824528846,
+     "api_together_nocache": 13.925530384615383
+    },
+    {
+     "tasks_per_day": 1200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.1939152636538461,
+     "api_deepinfra": 4.341959808576923,
+     "api_together_nocache": 15.19148769230769
+    },
+    {
+     "tasks_per_day": 1300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.2934082022916666,
+     "api_deepinfra": 4.703789792625,
+     "api_together_nocache": 16.457445
+    },
+    {
+     "tasks_per_day": 1400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.3929011409294871,
+     "api_deepinfra": 5.065619776673077,
+     "api_together_nocache": 17.723402307692307
+    },
+    {
+     "tasks_per_day": 1500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.4923940795673076,
+     "api_deepinfra": 5.427449760721154,
+     "api_together_nocache": 18.989359615384615
+    },
+    {
+     "tasks_per_day": 1600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.5918870182051281,
+     "api_deepinfra": 5.78927974476923,
+     "api_together_nocache": 20.255316923076922
+    },
+    {
+     "tasks_per_day": 1700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.6913799568429486,
+     "api_deepinfra": 6.151109728817307,
+     "api_together_nocache": 21.52127423076923
+    },
+    {
+     "tasks_per_day": 1800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.7908728954807691,
+     "api_deepinfra": 6.512939712865384,
+     "api_together_nocache": 22.787231538461537
+    },
+    {
+     "tasks_per_day": 1900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.8903658341185898,
+     "api_deepinfra": 6.874769696913461,
+     "api_together_nocache": 24.053188846153844
+    },
+    {
+     "tasks_per_day": 2000,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 1.9898587727564103,
+     "api_deepinfra": 7.236599680961538,
+     "api_together_nocache": 25.31914615384615
+    },
+    {
+     "tasks_per_day": 2100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.089351711394231,
+     "api_deepinfra": 7.598429665009615,
+     "api_together_nocache": 26.58510346153846
+    },
+    {
+     "tasks_per_day": 2200,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.1888446500320513,
+     "api_deepinfra": 7.960259649057692,
+     "api_together_nocache": 27.851060769230767
+    },
+    {
+     "tasks_per_day": 2300,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.288337588669872,
+     "api_deepinfra": 8.322089633105769,
+     "api_together_nocache": 29.117018076923074
+    },
+    {
+     "tasks_per_day": 2400,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.3878305273076923,
+     "api_deepinfra": 8.683919617153846,
+     "api_together_nocache": 30.38297538461538
+    },
+    {
+     "tasks_per_day": 2500,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.487323465945513,
+     "api_deepinfra": 9.045749601201923,
+     "api_together_nocache": 31.64893269230769
+    },
+    {
+     "tasks_per_day": 2600,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.5868164045833333,
+     "api_deepinfra": 9.40757958525,
+     "api_together_nocache": 32.91489
+    },
+    {
+     "tasks_per_day": 2700,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.686309343221154,
+     "api_deepinfra": 9.769409569298077,
+     "api_together_nocache": 34.180847307692304
+    },
+    {
+     "tasks_per_day": 2800,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.7858022818589743,
+     "api_deepinfra": 10.131239553346154,
+     "api_together_nocache": 35.446804615384615
+    },
+    {
+     "tasks_per_day": 2900,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.8852952204967948,
+     "api_deepinfra": 10.49306953739423,
+     "api_together_nocache": 36.71276192307692
+    },
+    {
+     "tasks_per_day": 3000,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 2.9847881591346153,
+     "api_deepinfra": 10.854899521442308,
+     "api_together_nocache": 37.97871923076923
+    },
+    {
+     "tasks_per_day": 3100,
+     "gpus": 1,
+     "self_spot": 10.152,
+     "self_on_demand": 16.968,
+     "api_doubleword": 3.0842810977724358,
+     "api_deepinfra": 11.216729505490383,
+     "api_together_nocache": 39.24467653846153
+    },
+    {
+     "tasks_per_day": 3200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.1837740364102562,
+     "api_deepinfra": 11.57855948953846,
+     "api_together_nocache": 40.510633846153844
+    },
+    {
+     "tasks_per_day": 3300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.2832669750480767,
+     "api_deepinfra": 11.940389473586537,
+     "api_together_nocache": 41.77659115384615
+    },
+    {
+     "tasks_per_day": 3400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.3827599136858972,
+     "api_deepinfra": 12.302219457634614,
+     "api_together_nocache": 43.04254846153846
+    },
+    {
+     "tasks_per_day": 3500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.4822528523237177,
+     "api_deepinfra": 12.66404944168269,
+     "api_together_nocache": 44.30850576923076
+    },
+    {
+     "tasks_per_day": 3600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.5817457909615382,
+     "api_deepinfra": 13.025879425730768,
+     "api_together_nocache": 45.574463076923074
+    },
+    {
+     "tasks_per_day": 3700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.681238729599359,
+     "api_deepinfra": 13.387709409778845,
+     "api_together_nocache": 46.84042038461538
+    },
+    {
+     "tasks_per_day": 3800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.7807316682371797,
+     "api_deepinfra": 13.749539393826922,
+     "api_together_nocache": 48.10637769230769
+    },
+    {
+     "tasks_per_day": 3900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.880224606875,
+     "api_deepinfra": 14.111369377874999,
+     "api_together_nocache": 49.37233499999999
+    },
+    {
+     "tasks_per_day": 4000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 3.9797175455128206,
+     "api_deepinfra": 14.473199361923076,
+     "api_together_nocache": 50.6382923076923
+    },
+    {
+     "tasks_per_day": 4100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.079210484150641,
+     "api_deepinfra": 14.835029345971153,
+     "api_together_nocache": 51.904249615384614
+    },
+    {
+     "tasks_per_day": 4200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.178703422788462,
+     "api_deepinfra": 15.19685933001923,
+     "api_together_nocache": 53.17020692307692
+    },
+    {
+     "tasks_per_day": 4300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.278196361426282,
+     "api_deepinfra": 15.558689314067307,
+     "api_together_nocache": 54.43616423076923
+    },
+    {
+     "tasks_per_day": 4400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.377689300064103,
+     "api_deepinfra": 15.920519298115384,
+     "api_together_nocache": 55.70212153846153
+    },
+    {
+     "tasks_per_day": 4500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.477182238701923,
+     "api_deepinfra": 16.28234928216346,
+     "api_together_nocache": 56.968078846153844
+    },
+    {
+     "tasks_per_day": 4600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.576675177339744,
+     "api_deepinfra": 16.644179266211538,
+     "api_together_nocache": 58.23403615384615
+    },
+    {
+     "tasks_per_day": 4700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.676168115977564,
+     "api_deepinfra": 17.006009250259613,
+     "api_together_nocache": 59.49999346153846
+    },
+    {
+     "tasks_per_day": 4800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.775661054615385,
+     "api_deepinfra": 17.36783923430769,
+     "api_together_nocache": 60.76595076923076
+    },
+    {
+     "tasks_per_day": 4900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.875153993253205,
+     "api_deepinfra": 17.729669218355767,
+     "api_together_nocache": 62.031908076923074
+    },
+    {
+     "tasks_per_day": 5000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 4.974646931891026,
+     "api_deepinfra": 18.091499202403845,
+     "api_together_nocache": 63.29786538461538
+    },
+    {
+     "tasks_per_day": 5100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.074139870528846,
+     "api_deepinfra": 18.45332918645192,
+     "api_together_nocache": 64.56382269230768
+    },
+    {
+     "tasks_per_day": 5200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.173632809166667,
+     "api_deepinfra": 18.8151591705,
+     "api_together_nocache": 65.82978
+    },
+    {
+     "tasks_per_day": 5300,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.273125747804487,
+     "api_deepinfra": 19.176989154548075,
+     "api_together_nocache": 67.0957373076923
+    },
+    {
+     "tasks_per_day": 5400,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.372618686442308,
+     "api_deepinfra": 19.538819138596153,
+     "api_together_nocache": 68.36169461538461
+    },
+    {
+     "tasks_per_day": 5500,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.472111625080128,
+     "api_deepinfra": 19.90064912264423,
+     "api_together_nocache": 69.62765192307691
+    },
+    {
+     "tasks_per_day": 5600,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.5716045637179485,
+     "api_deepinfra": 20.262479106692307,
+     "api_together_nocache": 70.89360923076923
+    },
+    {
+     "tasks_per_day": 5700,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.671097502355769,
+     "api_deepinfra": 20.624309090740383,
+     "api_together_nocache": 72.15956653846153
+    },
+    {
+     "tasks_per_day": 5800,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.7705904409935895,
+     "api_deepinfra": 20.98613907478846,
+     "api_together_nocache": 73.42552384615384
+    },
+    {
+     "tasks_per_day": 5900,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.87008337963141,
+     "api_deepinfra": 21.347969058836537,
+     "api_together_nocache": 74.69148115384614
+    },
+    {
+     "tasks_per_day": 6000,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 5.9695763182692305,
+     "api_deepinfra": 21.709799042884615,
+     "api_together_nocache": 75.95743846153846
+    },
+    {
+     "tasks_per_day": 6100,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 6.069069256907051,
+     "api_deepinfra": 22.07162902693269,
+     "api_together_nocache": 77.22339576923076
+    },
+    {
+     "tasks_per_day": 6200,
+     "gpus": 2,
+     "self_spot": 20.304,
+     "self_on_demand": 33.936,
+     "api_doubleword": 6.1685621955448715,
+     "api_deepinfra": 22.433459010980766,
+     "api_together_nocache": 78.48935307692307
+    },
+    {
+     "tasks_per_day": 6300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.268055134182692,
+     "api_deepinfra": 22.795288995028844,
+     "api_together_nocache": 79.75531038461538
+    },
+    {
+     "tasks_per_day": 6400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.3675480728205125,
+     "api_deepinfra": 23.15711897907692,
+     "api_together_nocache": 81.02126769230769
+    },
+    {
+     "tasks_per_day": 6500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.467041011458333,
+     "api_deepinfra": 23.518948963125,
+     "api_together_nocache": 82.28722499999999
+    },
+    {
+     "tasks_per_day": 6600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.5665339500961535,
+     "api_deepinfra": 23.880778947173074,
+     "api_together_nocache": 83.5531823076923
+    },
+    {
+     "tasks_per_day": 6700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.666026888733974,
+     "api_deepinfra": 24.242608931221152,
+     "api_together_nocache": 84.81913961538461
+    },
+    {
+     "tasks_per_day": 6800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.7655198273717945,
+     "api_deepinfra": 24.604438915269228,
+     "api_together_nocache": 86.08509692307692
+    },
+    {
+     "tasks_per_day": 6900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.865012766009615,
+     "api_deepinfra": 24.966268899317306,
+     "api_together_nocache": 87.35105423076922
+    },
+    {
+     "tasks_per_day": 7000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 6.9645057046474355,
+     "api_deepinfra": 25.32809888336538,
+     "api_together_nocache": 88.61701153846153
+    },
+    {
+     "tasks_per_day": 7100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.063998643285256,
+     "api_deepinfra": 25.68992886741346,
+     "api_together_nocache": 89.88296884615384
+    },
+    {
+     "tasks_per_day": 7200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.1634915819230764,
+     "api_deepinfra": 26.051758851461535,
+     "api_together_nocache": 91.14892615384615
+    },
+    {
+     "tasks_per_day": 7300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.262984520560897,
+     "api_deepinfra": 26.413588835509614,
+     "api_together_nocache": 92.41488346153845
+    },
+    {
+     "tasks_per_day": 7400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.362477459198718,
+     "api_deepinfra": 26.77541881955769,
+     "api_together_nocache": 93.68084076923076
+    },
+    {
+     "tasks_per_day": 7500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.461970397836539,
+     "api_deepinfra": 27.137248803605768,
+     "api_together_nocache": 94.94679807692307
+    },
+    {
+     "tasks_per_day": 7600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.561463336474359,
+     "api_deepinfra": 27.499078787653843,
+     "api_together_nocache": 96.21275538461538
+    },
+    {
+     "tasks_per_day": 7700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.66095627511218,
+     "api_deepinfra": 27.860908771701922,
+     "api_together_nocache": 97.47871269230768
+    },
+    {
+     "tasks_per_day": 7800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.76044921375,
+     "api_deepinfra": 28.222738755749997,
+     "api_together_nocache": 98.74466999999999
+    },
+    {
+     "tasks_per_day": 7900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.859942152387821,
+     "api_deepinfra": 28.584568739798076,
+     "api_together_nocache": 100.0106273076923
+    },
+    {
+     "tasks_per_day": 8000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 7.959435091025641,
+     "api_deepinfra": 28.94639872384615,
+     "api_together_nocache": 101.2765846153846
+    },
+    {
+     "tasks_per_day": 8100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.058928029663461,
+     "api_deepinfra": 29.308228707894227,
+     "api_together_nocache": 102.54254192307691
+    },
+    {
+     "tasks_per_day": 8200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.158420968301282,
+     "api_deepinfra": 29.670058691942305,
+     "api_together_nocache": 103.80849923076923
+    },
+    {
+     "tasks_per_day": 8300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.257913906939102,
+     "api_deepinfra": 30.03188867599038,
+     "api_together_nocache": 105.07445653846153
+    },
+    {
+     "tasks_per_day": 8400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.357406845576923,
+     "api_deepinfra": 30.39371866003846,
+     "api_together_nocache": 106.34041384615384
+    },
+    {
+     "tasks_per_day": 8500,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.456899784214743,
+     "api_deepinfra": 30.755548644086534,
+     "api_together_nocache": 107.60637115384614
+    },
+    {
+     "tasks_per_day": 8600,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.556392722852564,
+     "api_deepinfra": 31.117378628134613,
+     "api_together_nocache": 108.87232846153846
+    },
+    {
+     "tasks_per_day": 8700,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.655885661490384,
+     "api_deepinfra": 31.47920861218269,
+     "api_together_nocache": 110.13828576923076
+    },
+    {
+     "tasks_per_day": 8800,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.755378600128205,
+     "api_deepinfra": 31.841038596230767,
+     "api_together_nocache": 111.40424307692307
+    },
+    {
+     "tasks_per_day": 8900,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.854871538766025,
+     "api_deepinfra": 32.202868580278846,
+     "api_together_nocache": 112.67020038461537
+    },
+    {
+     "tasks_per_day": 9000,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 8.954364477403846,
+     "api_deepinfra": 32.56469856432692,
+     "api_together_nocache": 113.93615769230769
+    },
+    {
+     "tasks_per_day": 9100,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.053857416041666,
+     "api_deepinfra": 32.926528548374996,
+     "api_together_nocache": 115.20211499999999
+    },
+    {
+     "tasks_per_day": 9200,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.153350354679487,
+     "api_deepinfra": 33.288358532423075,
+     "api_together_nocache": 116.4680723076923
+    },
+    {
+     "tasks_per_day": 9300,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.252843293317307,
+     "api_deepinfra": 33.650188516471154,
+     "api_together_nocache": 117.7340296153846
+    },
+    {
+     "tasks_per_day": 9400,
+     "gpus": 3,
+     "self_spot": 30.455999999999996,
+     "self_on_demand": 50.903999999999996,
+     "api_doubleword": 9.352336231955128,
+     "api_deepinfra": 34.012018500519225,
+     "api_together_nocache": 118.99998692307692
+    }
+   ]
+  }
+ },
+ "bench": [
+  {
+   "tag": "prefix_on",
+   "level": "low",
+   "conc": 1,
+   "n": 8,
+   "success": 8,
+   "wall_s": 551.7,
+   "tasks_per_hr": 52.2,
+   "case_lat_mean": 68.9,
+   "case_lat_max": 115.6,
+   "gen_tok_per_s": 14.6,
+   "prefix_hit": 0.933,
+   "preemptions": 0,
+   "kv_peak": 0.092,
+   "waiting_peak": 0,
+   "statuses": [
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted_forced"
+   ]
+  },
+  {
+   "tag": "prefix_on",
+   "level": "low",
+   "conc": 4,
+   "n": 8,
+   "success": 8,
+   "wall_s": 273.1,
+   "tasks_per_hr": 105.5,
+   "case_lat_mean": 100.0,
+   "case_lat_max": 161.2,
+   "gen_tok_per_s": 38.0,
+   "prefix_hit": 0.952,
+   "preemptions": 0,
+   "kv_peak": 0.317,
+   "waiting_peak": 0,
+   "statuses": [
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted_forced"
+   ]
+  },
+  {
+   "tag": "prefix_on",
+   "level": "low",
+   "conc": 8,
+   "n": 8,
+   "success": 8,
+   "wall_s": 158.2,
+   "tasks_per_hr": 182.0,
+   "case_lat_mean": 93.9,
+   "case_lat_max": 158.2,
+   "gen_tok_per_s": 55.5,
+   "prefix_hit": 0.947,
+   "preemptions": 0,
+   "kv_peak": 0.416,
+   "waiting_peak": 0,
+   "statuses": [
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted_rescue"
+   ]
+  },
+  {
+   "tag": "prefix_off",
+   "level": "low",
+   "conc": 4,
+   "n": 8,
+   "success": 8,
+   "wall_s": 409.3,
+   "tasks_per_hr": 70.4,
+   "case_lat_mean": 158.5,
+   "case_lat_max": 236.6,
+   "gen_tok_per_s": 21.4,
+   "prefix_hit": null,
+   "preemptions": 0,
+   "kv_peak": 0.363,
+   "waiting_peak": 1,
+   "statuses": [
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted",
+    "submitted_forced"
+   ]
+  }
+ ]
+}

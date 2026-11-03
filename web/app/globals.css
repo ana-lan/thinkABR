@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --bg: #fafaf9;
+  --panel: #ffffff;
+  --card: #f4f2f1;
+  --line: #e7e2e0;
+  --text: #3f3a39;
+  --heading: #1c1917;
+  --muted: #57534e;
+  --subtle: #78716c;
+  --accent: #dc2626;
+  --accent-strong: #b91c1c;
+  --accent-soft: #fdeeee;
+  --accent-line: #f5c2c2;
+  --api: #a8a29e;
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0d0b0b;
+  --panel: #151212;
+  --card: #1d1919;
+  --line: #2b2525;
+  --text: #d6d0ce;
+  --heading: #faf7f6;
+  --muted: #a8a09d;
+  --subtle: #7c7370;
+  --accent: #f05252;
+  --accent-strong: #f87171;
+  --accent-soft: #2a1515;
+  --accent-line: #5a2222;
+  --api: #6f6966;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-card: var(--card);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-heading: var(--heading);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-line: var(--accent-line);
+  --color-api: var(--api);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}

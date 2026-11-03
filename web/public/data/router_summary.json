@@ -1,0 +1,51 @@
+{
+ "router": {
+  "n": 40,
+  "success": 39,
+  "steps": 8.4,
+  "reasoning_tok": 604,
+  "out_tok_per_success": 1228,
+  "s_per_success": 84,
+  "cache_hit": 0.935,
+  "status": {
+   "submitted": 37,
+   "submitted_rescue": 1,
+   "submitted_forced": 2
+  },
+  "escalated_cases": 2,
+  "escalations": [
+   "errors:2",
+   "errors:2"
+  ]
+ },
+ "fixed_low": {
+  "n": 40,
+  "success": 39,
+  "steps": 7.8,
+  "reasoning_tok": 623,
+  "out_tok_per_success": 1229,
+  "s_per_success": 84,
+  "cache_hit": 0.934,
+  "status": {
+   "submitted": 40
+  },
+  "escalated_cases": 0,
+  "escalations": []
+ },
+ "fixed_high": {
+  "n": 40,
+  "success": 39,
+  "steps": 9.8,
+  "reasoning_tok": 1047,
+  "out_tok_per_success": 1808,
+  "s_per_success": 123,
+  "cache_hit": 0.943,
+  "status": {
+   "submitted": 33,
+   "submitted_forced": 4,
+   "submitted_rescue": 3
+  },
+  "escalated_cases": 0,
+  "escalations": []
+ }
+}
