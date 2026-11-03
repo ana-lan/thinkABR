@@ -15,7 +15,7 @@ for cid, l in labels.items():
 
 # One "oracle" probe per failure type: the query a good agent would end up running.
 PROBES = {
-    "missing_file": [("get_schema", {})],
+    "missing_file": [("get_schema", {"file": "{file}"})],
     "renamed_column": [("read_error_log", {}), ("get_schema", {"file": "{file}"})],
     "type_mismatch": [("get_schema", {"file": "{file}"})],
     "date_format_change": [("sample_rows", {"file": "{file}", "n": 3})],

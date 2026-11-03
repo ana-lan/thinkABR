@@ -30,15 +30,17 @@ TOOL_SCHEMAS = [
             "job": {"type": "string", "enum": JOB_ORDER}}, "required": ["job"]}}},
     {"type": "function", "function": {
         "name": "get_schema",
-        "description": "Show the columns, auto-detected types and row count of a raw input file. "
-                       "Call with no file to list the raw files that exist.",
+        "description": "Show the columns, auto-detected types and row count of one raw input file "
+                       "(orders.csv, customers.csv or products.csv). If the file does not exist, "
+                       "the error lists the files that do.",
         "parameters": {"type": "object", "properties": {
-            "file": {"type": "string", "description": "e.g. orders.csv"}}, "required": []}}},
+            "file": {"type": "string", "enum": ["orders.csv", "customers.csv", "products.csv"]}},
+            "required": ["file"]}}},
     {"type": "function", "function": {
         "name": "sample_rows",
         "description": f"Show the first n rows (max {MAX_ROWS}) of a raw input file as CSV.",
         "parameters": {"type": "object", "properties": {
-            "file": {"type": "string", "description": "e.g. customers.csv"},
+            "file": {"type": "string", "enum": ["orders.csv", "customers.csv", "products.csv"]},
             "n": {"type": "integer", "default": 5}}, "required": ["file"]}}},
     {"type": "function", "function": {
         "name": "run_sql",
@@ -82,6 +84,7 @@ class CaseTools:
     def __init__(self, case_dir):
         self.case = Path(case_dir).resolve()
         self._con = None
+        self._seen = set()
 
     # ---------- dispatch ----------
     def call(self, name, arguments):
@@ -92,6 +95,11 @@ class CaseTools:
         fn = getattr(self, f"t_{name}", None)
         if fn is None or name == "submit_diagnosis":
             return f"ERROR: unknown tool {name}"
+        key = (name, json.dumps(args, sort_keys=True))
+        if key in self._seen:
+            return ("NOTE: you already made this exact call and the result has not changed. "
+                    "Use a different tool or arguments, or submit_diagnosis if you are confident.")
+        self._seen.add(key)
         try:
             return _cap(fn(**args))
         except TypeError as e:
@@ -114,7 +122,7 @@ class CaseTools:
     def t_get_schema(self, file=None, **_):
         files = self._existing()
         if not file:
-            return "raw files: " + (", ".join(files) or "(none)")
+            return "ERROR: pass file, one of orders.csv, customers.csv, products.csv"
         t = _table_name(file)
         if t is None or f"{t}.csv" not in files:
             return f"ERROR: raw/{Path(str(file)).name} does not exist. Existing raw files: {', '.join(files)}"
