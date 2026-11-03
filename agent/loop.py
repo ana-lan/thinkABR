@@ -18,7 +18,7 @@ from agent.tools import TOOL_SCHEMAS, CaseTools, parse_submission
 
 BASE_URL = "http://localhost:8000"
 MODEL = "muse-glimmer"
-MAX_MODEL_LEN = 8192
+MAX_MODEL_LEN = 16384
 MAX_STEPS = 14
 WARN_STEPS = 3     # start warning this many steps before the cap
 MAX_OUT = 3072          # per-step completion cap (reasoning + tool call)
@@ -110,7 +110,7 @@ def run_case(case_dir, policy, client=None, keep_reasoning=True, base=BASE_URL, 
         level = policy(step, messages, steps)
         messages[0]["content"] = system_prompt(level)
 
-        room = MAX_MODEL_LEN - est_prompt - 32
+        room = MAX_MODEL_LEN - est_prompt - 512
         if step > 0 and room < MIN_OUT:
             status = "context_overflow"
             break
@@ -190,6 +190,33 @@ def run_case(case_dir, policy, client=None, keep_reasoning=True, base=BASE_URL, 
             est_prompt += len(out) // 3 + 16   # rough until the next call reports the real number
         if done:
             break
+
+    # Rescue: forced submit sometimes returns no tool call. One extra forced call, same level.
+    if prediction is None and status in ("max_steps", "no_submission"):
+        messages[0]["content"] = system_prompt(level)
+        messages.append({"role": "user", "content": "Step budget used up. Call submit_diagnosis now with your best answer."})
+        t0 = time.time()
+        try:
+            r = client.chat.completions.create(model=MODEL, messages=messages, tools=TOOL_SCHEMAS,
+                tool_choice={"type": "function", "function": {"name": "submit_diagnosis"}}, max_tokens=1024)
+            msg, u = r.choices[0].message, r.usage
+            for tc in msg.tool_calls or []:
+                if tc.function.name == "submit_diagnosis":
+                    prediction = parse_submission(tc.function.arguments)
+            if prediction is None and msg.content:
+                try:
+                    prediction = parse_submission(msg.content)
+                except Exception:
+                    prediction = None
+            reasoning = _get_reasoning(msg) or ""
+            steps.append({"step": len(steps), "level": level, "finish": r.choices[0].finish_reason,
+                          "prompt_tokens": u.prompt_tokens, "completion_tokens": u.completion_tokens,
+                          "cached_tokens": None, "reasoning_tokens": count_tokens(reasoning, base),
+                          "reasoning_chars": len(reasoning), "latency_s": round(time.time() - t0, 3),
+                          "forced_submit": True, "rescue": True, "tools": []})
+            status = "submitted_rescue" if prediction else "rescue_failed"
+        except BadRequestError:
+            status = "rescue_failed"
 
     hits1, queries1 = prefix_cache_counters(base)
     cache = None
