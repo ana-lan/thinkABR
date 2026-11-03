@@ -11,14 +11,14 @@ UTILS = [0.25, 0.5, 0.75, 1.0]
 
 summ = json.load(open("runs/fixed_summary_v2.json"))
 bench = [json.loads(l) for l in open("runs/bench.jsonl")]
-peak = [b for b in bench if b["tag"] == "prefix_on" and b["conc"] == 8][0]
+peak = [b for b in bench if b["tag"] == "seqs16" and b["conc"] == 16][0]
 low_t = summ["fixed_low_v2"]["overall"]["wall_s_per_success"]
 
 out = {"prices": PRICES, "gpu_hourly": GPU, "levels": {}, "bench": bench}
 for lv in LEVELS:
     o = summ[f"fixed_{lv}_v2"]["overall"]
     tin, hit, tout = o["in_tok_per_success"], o["cache_hit"], o["out_tok_per_success"]
-    cap_hr = peak["tasks_per_hr"] * low_t / o["wall_s_per_success"]
+    cap_hr = peak["tasks_per_hr"] * peak["success"] / peak["n"] * low_t / o["wall_s_per_success"]
     cap_day = cap_hr * 24
     api = {p: (tin*(1-hit)*v["in"] + tin*hit*v["cached"] + tout*v["out"]) / 1e6
            for p, v in PRICES.items()}

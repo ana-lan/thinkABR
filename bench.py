@@ -37,12 +37,13 @@ def main():
     ap.add_argument("--conc", default="1,4,8")
     ap.add_argument("--tag", default="prefix_on")
     ap.add_argument("--base", default="http://localhost:8000")
+    ap.add_argument("--per_type", type=int, default=1)
     a = ap.parse_args()
     labels = grade.load_labels("cases/labels.jsonl")
     seen, ids = set(), []
     for cid in sorted(labels):
         t = labels[cid]["failure_type"]
-        if t not in seen: seen.add(t); ids.append(cid)
+        if sum(labels[i]["failure_type"] == t for i in ids) < a.per_type: ids.append(cid)
     print("cases:", ids, flush=True)
     for c in map(int, a.conc.split(",")):
         print(f"conc={c} starting {time.strftime('%H:%M')}", flush=True)
