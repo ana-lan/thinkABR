@@ -10,7 +10,7 @@
 [![baseline](https://img.shields.io/badge/baseline-Muse_Spark_1.3-0866FF)](#reasoning-level-40-cases-each)
 [![dashboard](https://img.shields.io/badge/dashboard-live-brightgreen)](https://thinkabr.vercel.app)
 
-**Live demo:** [thinkabr.vercel.app](https://thinkabr.vercel.app) | **Demo video:** [3-minute walkthrough](VIDEO_LINK)
+**Live demo:** [thinkabr.vercel.app](https://thinkabr.vercel.app) | **Demo video:** [3-minute walkthrough](https://youtu.be/1W7iQVMgkY0)
 
 </div>
 
