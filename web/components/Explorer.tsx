@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { cost, LEVELS, PROVIDERS, type Gpu, type Level, type Provider } from "@/lib/data";
-import { apiPerTask, breakEvenUtil, capPerDay, int, pct, selfPerTask, usd } from "@/lib/cost";
+import { apiPerTask, breakEvenUtil, capPerDay, gpuPerDay, int, pct, selfPerTask, usd } from "@/lib/cost";
 
 const W = 600;
 const H = 260;
@@ -12,6 +12,8 @@ const MT = 14;
 const MB = 36;
 const PW = W - ML - MR;
 const PH = H - MT - MB;
+
+const providerLabel = (p: Provider) => PROVIDERS.find((x) => x.key === p)?.label ?? p;
 
 function Seg<T extends string>({
   label,
@@ -43,6 +45,21 @@ function Seg<T extends string>({
           </button>
         ))}
       </div>
+    </div>
+  );
+}
+
+function Legend({ gpu, provider }: { gpu: Gpu; provider: Provider }) {
+  return (
+    <div className="flex items-center gap-4 font-mono text-[11px] text-muted">
+      <span className="flex items-center gap-1.5">
+        <span className="inline-block w-4 h-0.5 bg-accent" />
+        L4 {gpu === "spot" ? "spot" : "on-demand"}
+      </span>
+      <span className="flex items-center gap-1.5">
+        <span className="inline-block w-4 border-t-[1.5px] border-dashed border-api" />
+        {providerLabel(provider)} API
+      </span>
     </div>
   );
 }
@@ -116,6 +133,78 @@ function Chart({ level, gpu, provider, u }: { level: Level; gpu: Gpu; provider: 
   );
 }
 
+function Staircase({ level, gpu, provider, u }: { level: Level; gpu: Gpu; provider: Provider; u: number }) {
+  const api = apiPerTask(level, provider);
+  const g = gpuPerDay(gpu);
+  const cap = capPerDay(level);
+  const xMax = cap * 3;
+  const yMax = niceMax(Math.max(g * 3, api * xMax));
+  const x = (n: number) => ML + (n / xMax) * PW;
+  const y = (c: number) => MT + PH - (c / yMax) * PH;
+
+  const bands: [number, number][] = [];
+  for (let k = 1; k <= 3; k++) {
+    const lo = Math.max((k - 1) * cap, (k * g) / api);
+    const hi = k * cap;
+    if (lo < hi) bands.push([lo, hi]);
+  }
+
+  let d = `M${x(0)} ${y(g)}`;
+  for (let k = 1; k <= 3; k++) {
+    d += ` H${x(k * cap)}`;
+    if (k < 3) d += ` V${y((k + 1) * g)}`;
+  }
+  const now = u * cap;
+
+  return (
+    <div className="mt-8 pt-6 border-t border-line">
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+        <p className="font-mono text-[11px] text-subtle">daily cost as volume grows · each step is one more L4</p>
+        <Legend gpu={gpu} provider={provider} />
+      </div>
+      <svg viewBox={`0 0 ${W} ${H}`} className="w-full h-auto" role="img" aria-label="Daily cost: L4 staircase vs API line">
+        {bands.map(([a, b]) => (
+          <rect key={a} x={x(a)} y={MT} width={x(b) - x(a)} height={PH} fill="var(--accent-soft)" />
+        ))}
+        {[0, 0.25, 0.5, 0.75, 1].map((t) => (
+          <g key={`y${t}`}>
+            <line x1={ML} x2={W - MR} y1={y(yMax * t)} y2={y(yMax * t)} stroke="var(--line)" strokeWidth={0.5} />
+            <text x={ML - 8} y={y(yMax * t) + 4} textAnchor="end" className="fill-subtle font-mono" fontSize={10}>
+              ${Math.round(yMax * t)}
+            </text>
+          </g>
+        ))}
+        {[0, 1, 2, 3].map((k) => (
+          <text key={`x${k}`} x={x(k * cap)} y={H - MB + 16} textAnchor="middle" className="fill-subtle font-mono" fontSize={10}>
+            {int(k * cap)}
+          </text>
+        ))}
+        <text x={ML + PW / 2} y={H - 4} textAnchor="middle" className="fill-subtle" fontSize={11}>
+          tasks per day
+        </text>
+
+        <line x1={x(0)} y1={y(0)} x2={x(xMax)} y2={y(api * xMax)} stroke="var(--api)" strokeWidth={1.5} strokeDasharray="5 4" />
+        <path d={d} fill="none" stroke="var(--accent)" strokeWidth={2.5} />
+        {[1, 2, 3].map((k) => (
+          <text key={`s${k}`} x={x((k - 1) * cap) + 8} y={y(k * g) - 6} className="fill-accent font-mono" fontSize={10}>
+            {k} L4{k > 1 ? "s" : ""}
+          </text>
+        ))}
+
+        <line x1={x(now)} x2={x(now)} y1={MT} y2={MT + PH} stroke="var(--heading)" strokeWidth={1} opacity={0.3} />
+        <circle cx={x(now)} cy={y(g)} r={5} fill="var(--accent)" stroke="var(--panel)" strokeWidth={2} />
+      </svg>
+      <p className="mt-2 text-sm text-muted">
+        {bands.length > 0
+          ? `L4s are cheaper only in the shaded bands: ${bands
+              .map(([a, b]) => `${int(a)} to ${int(b)}`)
+              .join(", ")} tasks a day. Right after each step, a new mostly idle card hands the win back to the API.`
+          : `${providerLabel(provider)} is cheaper at every volume shown. Even a full L4 costs more per task.`}
+      </p>
+    </div>
+  );
+}
+
 export function Explorer() {
   const [provider, setProvider] = useState<Provider>("deepinfra");
   const [gpu, setGpu] = useState<Gpu>("spot");
@@ -166,18 +255,9 @@ export function Explorer() {
         </div>
 
         <div>
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
             <p className="font-mono text-[11px] text-subtle">cost per successful task</p>
-            <div className="flex items-center gap-4 font-mono text-[11px] text-muted">
-              <span className="flex items-center gap-1.5">
-                <span className="inline-block w-4 h-0.5 bg-accent" />
-                L4 {gpu === "spot" ? "spot" : "on-demand"}
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="inline-block w-4 border-t-[1.5px] border-dashed border-api" />
-                {PROVIDERS.find((p) => p.key === provider)?.label} API
-              </span>
-            </div>
+            <Legend gpu={gpu} provider={provider} />
           </div>
           <Chart level={level} gpu={gpu} provider={provider} u={u} />
           <div className="mt-3 flex flex-wrap items-baseline justify-between gap-2">
@@ -225,6 +305,8 @@ export function Explorer() {
           );
         })}
       </div>
+
+      <Staircase level={level} gpu={gpu} provider={provider} u={u} />
     </div>
   );
 }
