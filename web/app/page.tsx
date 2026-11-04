@@ -17,12 +17,16 @@ const m = (x: number) => `$${x.toFixed(2)}`;
 
 export default function Page() {
   const r = router.router;
-  const on = bench.filter((b) => b.tag === "prefix_on" || (b.tag === "seqs16" && b.conc === 16)).sort((a, b) => a.conc - b.conc);
+  const on = bench.filter((b) => b.tag === "prefix_on").sort((a, b) => a.conc - b.conc);
   const on4 = on.find((b) => b.conc === 4)!;
+  const on8 = on.find((b) => b.conc === 8)!;
   const off = bench.find((b) => b.tag === "prefix_off")!;
-  const maxTph = Math.max(...on.map((b) => b.tasks_per_hr));
+  const s16 = bench.find((b) => b.tag === "seqs16" && b.conc === 16);
+  const rows = s16 ? [...on, s16] : on;
+  const maxTph = Math.max(...rows.map((b) => b.tasks_per_hr));
   const speedup = on4.tasks_per_hr / off.tasks_per_hr;
   const latCut = 1 - on4.case_lat_mean / off.case_lat_mean;
+  const capHr = cost.levels.low.cap_per_day / 24;
   const p = cost.prices;
 
   return (
@@ -130,11 +134,12 @@ export default function Page() {
             <div className="rounded-xl border border-line bg-panel p-5">
               <p className="font-mono text-[11px] text-subtle mb-4">concurrent agents · reasoning low</p>
               <div className="space-y-5">
-                {on.map((b) => (
-                  <div key={b.conc}>
+                {rows.map((b) => (
+                  <div key={`${b.tag}-${b.conc}`}>
                     <div className="flex justify-between text-sm">
                       <span className="text-muted">
                         {b.conc} {b.conc === 1 ? "agent" : "agents"}
+                        {b.tag === "seqs16" && <span className="font-mono text-[11px] text-accent ml-2">max-num-seqs 16</span>}
                       </span>
                       <span className="font-mono tabular-nums text-heading">{Math.round(b.tasks_per_hr)} tasks/hr</span>
                     </div>
@@ -177,8 +182,12 @@ export default function Page() {
             </div>
           </div>
           <Note>
-            These are expected effects: decode is memory-bound, so 4-bit weights, batching and prefix caching all help.
-            Going from 8 to 16 agents took one vLLM flag (max-num-seqs), not more memory. Part of the jump is measurement: the 8-agent bar is one wave, held back by its slowest case, and the same 8 agents over 16 cases did 270/hr. KV usage peaked at {pct(on[on.length - 1].kv_peak)}.
+            Expected effects: decode is memory-bound, so 4-bit weights, batching and prefix caching all help. At 8 agents
+            KV only peaked at {pct(on8.kv_peak)}, so the limit was the server&apos;s max-num-seqs setting, not memory.
+            {s16 &&
+              ` Raising it to 16 took one L4 from ${Math.round(on8.tasks_per_hr)} to ${Math.round(s16.tasks_per_hr)} tasks/hr (KV peak ${pct(
+                s16.kv_peak
+              )}). ${s16.success} of ${s16.n} were correct, so capacity counts ${Math.round(capHr)} successful tasks/hr.`}
           </Note>
         </Section>
 
@@ -194,7 +203,9 @@ Break-even load    = GPU cost per day / (API cost per task × capacity per day)`
             <li>
               {`Prices per 1M tokens (in / cached / out): Doubleword ${m(p.doubleword.in)} / ${m(p.doubleword.cached)} / ${m(p.doubleword.out)}, DeepInfra ${m(p.deepinfra.in)} / ${m(p.deepinfra.cached)} / ${m(p.deepinfra.out)}. No-cache uses Together's list price, ${m(p.together_nocache.in)} in / ${m(p.together_nocache.out)} out, with no cache discount.`}
             </li>
-            <li>L4 capacity is measured at low (333 tasks/hr at 16 agents, 15 of 16 correct, so ~312 successful). Other levels are scaled by time per success.</li>
+            <li>
+              {`L4 capacity is measured at low with max-num-seqs 16: ${Math.round(capHr)} successful tasks/hr (${int(cost.levels.low.cap_per_day)} a day). Other levels are scaled by time per success.`}
+            </li>
             <li>Excludes engineering time, storage, egress and spot interruptions. One run per level, so read differences as &quot;about&quot;.</li>
             <li>
               The one miss at every level (case_009) is ambiguous: a type-mismatch injector adds a unit-like &quot; pcs&quot; suffix, and every level
