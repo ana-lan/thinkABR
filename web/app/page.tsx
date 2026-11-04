@@ -17,7 +17,7 @@ const m = (x: number) => `$${x.toFixed(2)}`;
 
 export default function Page() {
   const r = router.router;
-  const on = bench.filter((b) => b.tag === "prefix_on").sort((a, b) => a.conc - b.conc);
+  const on = bench.filter((b) => b.tag === "prefix_on" || (b.tag === "seqs16" && b.conc === 16)).sort((a, b) => a.conc - b.conc);
   const on4 = on.find((b) => b.conc === 4)!;
   const off = bench.find((b) => b.tag === "prefix_off")!;
   const maxTph = Math.max(...on.map((b) => b.tasks_per_hr));
@@ -194,7 +194,7 @@ Break-even load    = GPU cost per day / (API cost per task × capacity per day)`
             <li>
               {`Prices per 1M tokens (in / cached / out): Doubleword ${m(p.doubleword.in)} / ${m(p.doubleword.cached)} / ${m(p.doubleword.out)}, DeepInfra ${m(p.deepinfra.in)} / ${m(p.deepinfra.cached)} / ${m(p.deepinfra.out)}. No-cache uses Together's list price, ${m(p.together_nocache.in)} in / ${m(p.together_nocache.out)} out, with no cache discount.`}
             </li>
-            <li>L4 capacity is measured at low (182 tasks/hr at 8 agents). Other levels are scaled by time per success.</li>
+            <li>L4 capacity is measured at low (333 tasks/hr at 16 agents, 15 of 16 correct, so ~312 successful). Other levels are scaled by time per success.</li>
             <li>Excludes engineering time, storage, egress and spot interruptions. One run per level, so read differences as &quot;about&quot;.</li>
             <li>
               The one miss at every level (case_009) is ambiguous: a type-mismatch injector adds a unit-like &quot; pcs&quot; suffix, and every level
