@@ -3,6 +3,7 @@ import { REPO_URL } from "@/lib/data";
 
 const tabs = [
   { href: "#explorer", label: "Explorer" },
+  { href: "#agent", label: "Agent" },
   { href: "#reasoning", label: "Reasoning" },
   { href: "#serving", label: "Serving" },
   { href: "#method", label: "Method" },
