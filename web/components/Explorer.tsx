@@ -142,11 +142,17 @@ function Staircase({ level, gpu, provider, u }: { level: Level; gpu: Gpu; provid
   const x = (n: number) => ML + (n / xMax) * PW;
   const y = (c: number) => MT + PH - (c / yMax) * PH;
 
-  const bands: [number, number][] = [];
+  const raw: [number, number][] = [];
   for (let k = 1; k <= 3; k++) {
     const lo = Math.max((k - 1) * cap, (k * g) / api);
     const hi = k * cap;
-    if (lo < hi) bands.push([lo, hi]);
+    if (lo < hi) raw.push([lo, hi]);
+  }
+  const bands: [number, number][] = [];
+  for (const b of raw) {
+    const last = bands[bands.length - 1];
+    if (last && b[0] - last[1] < 1) last[1] = b[1];
+    else bands.push([b[0], b[1]]);
   }
 
   let d = `M${x(0)} ${y(g)}`;
@@ -155,6 +161,7 @@ function Staircase({ level, gpu, provider, u }: { level: Level; gpu: Gpu; provid
     if (k < 3) d += ` V${y((k + 1) * g)}`;
   }
   const now = u * cap;
+  const fmt = ([a, b]: [number, number]) => (b >= xMax - 1 ? `${int(a)} and up` : `${int(a)} to ${int(b)}`);
 
   return (
     <div className="mt-8 pt-6 border-t border-line">
@@ -195,11 +202,11 @@ function Staircase({ level, gpu, provider, u }: { level: Level; gpu: Gpu; provid
         <circle cx={x(now)} cy={y(g)} r={5} fill="var(--accent)" stroke="var(--panel)" strokeWidth={2} />
       </svg>
       <p className="mt-2 text-sm text-muted">
-        {bands.length > 0
-          ? `L4s are cheaper only in the shaded bands: ${bands
-              .map(([a, b]) => `${int(a)} to ${int(b)}`)
-              .join(", ")} tasks a day. Right after each step, a new mostly idle card hands the win back to the API.`
-          : `${providerLabel(provider)} is cheaper at every volume shown. Even a full L4 costs more per task.`}
+        {bands.length === 0
+          ? `${providerLabel(provider)} is cheaper at every volume shown. Even a full L4 costs more per task.`
+          : `L4s are cheaper in the shaded range: ${bands.map(fmt).join(", ")} tasks a day.${
+              bands.length > 1 ? " Right after a step, a new mostly idle card can hand the win back to the API." : ""
+            }`}
       </p>
     </div>
   );
