@@ -19,8 +19,8 @@ export default function Page() {
   const r = router.router;
   const on = bench.filter((b) => b.tag === "prefix_on").sort((a, b) => a.conc - b.conc);
   const on4 = on.find((b) => b.conc === 4)!;
-  const on8 = on.find((b) => b.conc === 8)!;
   const off = bench.find((b) => b.tag === "prefix_off")!;
+  const s8 = bench.find((b) => b.tag === "seqs16" && b.conc === 8);
   const s16 = bench.find((b) => b.tag === "seqs16" && b.conc === 16);
   const rows = s16 ? [...on, s16] : on;
   const maxTph = Math.max(...rows.map((b) => b.tasks_per_hr));
@@ -182,12 +182,15 @@ export default function Page() {
             </div>
           </div>
           <Note>
-            Expected effects: decode is memory-bound, so 4-bit weights, batching and prefix caching all help. At 8 agents
-            KV only peaked at {pct(on8.kv_peak)}, so the limit was the server&apos;s max-num-seqs setting, not memory.
-            {s16 &&
-              ` Raising it to 16 took one L4 from ${Math.round(on8.tasks_per_hr)} to ${Math.round(s16.tasks_per_hr)} tasks/hr (KV peak ${pct(
-                s16.kv_peak
-              )}). ${s16.success} of ${s16.n} were correct, so capacity counts ${Math.round(capHr)} successful tasks/hr.`}
+            Expected effects: decode is memory-bound, so 4-bit weights, batching and prefix caching all help. The 1, 4 and
+            8 agent bars are one wave of 8 cases, so the slowest case sets the time and they undercount.
+            {s8 &&
+              s16 &&
+              ` Over 16 cases the same 8 agents did ${Math.round(s8.tasks_per_hr)} tasks/hr. Raising max-num-seqs from 8 to 16 took that to ${Math.round(
+                s16.tasks_per_hr
+              )} (${(s16.tasks_per_hr / s8.tasks_per_hr).toFixed(2)}×, KV peak ${pct(s16.kv_peak)}, no preemptions). ${s16.success} of ${
+                s16.n
+              } were correct, so capacity counts ${Math.round(capHr)} successful tasks/hr.`}
           </Note>
         </Section>
 
