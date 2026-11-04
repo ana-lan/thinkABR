@@ -178,7 +178,7 @@ export default function Page() {
           </div>
           <Note>
             These are expected effects: decode is memory-bound, so 4-bit weights, batching and prefix caching all help.
-            The cap at 8 agents is the server&apos;s max-num-seqs setting, not memory. KV usage peaked at {pct(on[on.length - 1].kv_peak)}.
+            Going from 8 to 16 agents took one vLLM flag (max-num-seqs), not more memory. Part of the jump is measurement: the 8-agent bar is one wave, held back by its slowest case, and the same 8 agents over 16 cases did 270/hr. KV usage peaked at {pct(on[on.length - 1].kv_peak)}.
           </Note>
         </Section>
 
