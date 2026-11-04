@@ -1,0 +1,123 @@
+{
+ "case_id": "case_021",
+ "failure_type": "bad_join_key",
+ "alert": "PagerDuty: DAG daily_revenue failed on run 2026-11-03T02:00:00.\nFailed task: int_orders_enriched. Downstream tasks were skipped.\nFind the root cause (which input file and column) and propose a fix.\n",
+ "label": {
+  "file": "raw/customers.csv",
+  "column": "customer_id"
+ },
+ "prediction": {
+  "failure_type": "bad_join_key",
+  "file": "raw/customers.csv",
+  "column": "customer_id",
+  "fix": "The customers.csv customer_id values changed from numeric to 'cust_1001' format, so TRY_CAST to INTEGER returns NULL and the left join to orders finds zero matches. Update the join in int_orders_enriched to parse the numeric suffix, e.g., TRY_CAST(REPLACE(c.customer_id,'cust_','') AS INTEGER), or ask upstream to restore numeric customer_id values."
+ },
+ "graded": {
+  "type_ok": true,
+  "file_ok": true,
+  "col_ok": true,
+  "success": true
+ },
+ "n_steps": 6,
+ "wall_s": 85.82,
+ "out_tokens": 1262,
+ "steps": [
+  {
+   "step": 0,
+   "latency_s": 7.931,
+   "reasoning_tokens": 82,
+   "calls": [
+    {
+     "name": "read_error_log",
+     "args": {},
+     "out": "[2026-11-03 02:00:01] INFO  dag=daily_revenue run_id=scheduled__2026-11-03T02:00:00 starting\n[2026-11-03 02:00:02] INFO  task=stg_orders state=running sql=jobs/stg_orders.sql\n[2026-11-03 02:00:03] INFO  task=stg_orders wrote 300 rows\n[2026-11-03 02:00:04] INFO  task=stg_orders checks passed state=success\n[2026-11-03 02:00:05] INFO  task=stg_customers state=running sql=jobs/stg_customers.sql\n[2026-..."
+    }
+   ]
+  },
+  {
+   "step": 1,
+   "latency_s": 8.667,
+   "reasoning_tokens": 66,
+   "calls": [
+    {
+     "name": "read_job_code",
+     "args": {
+      "job": "int_orders_enriched"
+     },
+     "out": "-- One row per order, enriched with customer region and product category.\nCREATE OR REPLACE TABLE int_orders_enriched AS\nSELECT\n    o.order_id,\n    o.order_ts,\n    o.qty,\n    o.amount,\n    c.customer_id AS c_customer_id,\n    c.region,\n    p.product_id  AS p_product_id,\n    p.category\nFROM stg_orders o\nLEFT JOIN stg_customers c ON TRY_CAST(c.customer_id AS INTEGER) = o.customer_id\nLEFT JOIN stg_pro..."
+    }
+   ]
+  },
+  {
+   "step": 2,
+   "latency_s": 12.623,
+   "reasoning_tokens": 44,
+   "calls": [
+    {
+     "name": "get_schema",
+     "args": {
+      "file": "orders.csv"
+     },
+     "out": "raw/orders.csv  rows=300\n  order_id: BIGINT\n  customer_id: BIGINT\n  product_id: BIGINT\n  qty: BIGINT\n  amount: DOUBLE\n  order_ts: TIMESTAMP"
+    },
+    {
+     "name": "get_schema",
+     "args": {
+      "file": "customers.csv"
+     },
+     "out": "raw/customers.csv  rows=60\n  customer_id: VARCHAR\n  name: VARCHAR\n  region: VARCHAR\n  signup_date: DATE"
+    },
+    {
+     "name": "get_schema",
+     "args": {
+      "file": "products.csv"
+     },
+     "out": "raw/products.csv  rows=25\n  product_id: BIGINT\n  name: VARCHAR\n  category: VARCHAR\n  unit_price: DOUBLE"
+    }
+   ]
+  },
+  {
+   "step": 3,
+   "latency_s": 12.116,
+   "reasoning_tokens": 53,
+   "calls": [
+    {
+     "name": "sample_rows",
+     "args": {
+      "file": "customers.csv",
+      "n": 5
+     },
+     "out": "customer_id,name,region,signup_date\ncust_1001,cust_000,north,2025-09-15\ncust_1002,cust_001,south,2025-04-10\ncust_1003,cust_002,east,2026-03-31\ncust_1004,cust_003,north,2025-03-22\ncust_1005,cust_004,east,2025-07-01"
+    },
+    {
+     "name": "sample_rows",
+     "args": {
+      "file": "orders.csv",
+      "n": 5
+     },
+     "out": "order_id,customer_id,product_id,qty,amount,order_ts\n90001,1006,505,2,71.16,2026-11-02 06:23:02\n90002,1046,512,4,155.12,2026-11-02 08:07:01\n90003,1027,510,2,70.76,2026-11-02 10:46:24\n90004,1029,517,3,118.17,2026-11-01 18:13:48\n90005,1051,508,3,258.84,2026-11-01 10:24:47"
+    }
+   ]
+  },
+  {
+   "step": 4,
+   "latency_s": 20.609,
+   "reasoning_tokens": 238,
+   "calls": [
+    {
+     "name": "run_sql",
+     "args": {
+      "query": "SELECT COUNT(*) FROM customers WHERE TRY_CAST(customer_id AS INTEGER) IS NOT NULL"
+     },
+     "out": "count_star()\n0"
+    }
+   ]
+  },
+  {
+   "step": 5,
+   "latency_s": 23.619,
+   "reasoning_tokens": 177,
+   "calls": []
+  }
+ ]
+}

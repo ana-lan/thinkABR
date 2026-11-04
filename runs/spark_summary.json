@@ -1,0 +1,25 @@
+{
+ "model": "muse-spark-1.3",
+ "prices": {
+  "in": 1.25,
+  "cached": 0.15,
+  "out": 4.25
+ },
+ "n": 40,
+ "success": 40,
+ "steps": 5.8,
+ "in_tok_per_success": 14911,
+ "cached_tok_per_success": 10946,
+ "out_tok_per_success": 1426,
+ "cache_share": 0.734,
+ "s_per_success": 15.2,
+ "cost_per_task": 0.01266,
+ "total_spent_usd": 0.506,
+ "statuses": {
+  "submitted": 40
+ },
+ "vs_glimmer_low": {
+  "deepinfra_cost_per_task": 0.0026419196263461537,
+  "l4_spot_full_cost_per_task": 0.00135
+ }
+}

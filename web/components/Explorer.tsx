@@ -12,6 +12,7 @@ const MT = 14;
 const MB = 36;
 const PW = W - ML - MR;
 const PH = H - MT - MB;
+const EVEN = 0.02; // within 2% counts as about even
 
 const providerLabel = (p: Provider) => PROVIDERS.find((x) => x.key === p)?.label ?? p;
 
@@ -135,6 +136,7 @@ function Chart({ level, gpu, provider, u }: { level: Level; gpu: Gpu; provider: 
 
 function Staircase({ level, gpu, provider, u }: { level: Level; gpu: Gpu; provider: Provider; u: number }) {
   const api = apiPerTask(level, provider);
+  const full = selfPerTask(level, gpu, 1);
   const g = gpuPerDay(gpu);
   const cap = capPerDay(level);
   const xMax = cap * 3;
@@ -161,7 +163,12 @@ function Staircase({ level, gpu, provider, u }: { level: Level; gpu: Gpu; provid
     if (k < 3) d += ` V${y((k + 1) * g)}`;
   }
   const now = u * cap;
-  const fmt = ([a, b]: [number, number]) => (b >= xMax - 1 ? `${int(a)} and up` : `${int(a)} to ${int(b)}`);
+
+  const parts = bands.map(([a, b], i) => {
+    const up = b >= xMax - 1;
+    if (i === 0) return up ? `from ${int(a)} tasks a day up` : `from ${int(a)} to ${int(b)} tasks a day`;
+    return up ? `then again from ${int(a)} up` : `then again from ${int(a)} to ${int(b)}`;
+  });
 
   return (
     <div className="mt-8 pt-6 border-t border-line">
@@ -203,8 +210,10 @@ function Staircase({ level, gpu, provider, u }: { level: Level; gpu: Gpu; provid
       </svg>
       <p className="mt-2 text-sm text-muted">
         {bands.length === 0
-          ? `${providerLabel(provider)} is cheaper at every volume shown. Even a full L4 costs more per task.`
-          : `L4s are cheaper in the shaded range: ${bands.map(fmt).join(", ")} tasks a day.${
+          ? `${providerLabel(provider)} is cheaper at every volume. Even fully loaded, an L4 costs ${usd(full)} a task vs ${usd(
+              api
+            )}, so adding L4s never catches up.`
+          : `L4s are cheaper ${parts.join(", ")}.${
               bands.length > 1 ? " Right after a step, a new mostly idle card can hand the win back to the API." : ""
             }`}
       </p>
@@ -221,11 +230,16 @@ export function Explorer() {
   const u = util / 100;
   const api = apiPerTask(level, provider);
   const self = selfPerTask(level, gpu, u);
+  const full = selfPerTask(level, gpu, 1);
   const be = breakEvenUtil(level, gpu, provider);
   const l4Wins = self < api;
   const gap = l4Wins ? (api - self) / api : (self - api) / self;
+  const even = Math.abs(self - api) / Math.max(self, api) < EVEN;
   const cap = capPerDay(level);
   const lc = cost.levels[level];
+
+  const verdict = even ? "About even" : l4Wins ? `L4 is ${pct(gap)} cheaper` : `API is ${pct(gap)} cheaper`;
+  const verdictColor = even ? "text-heading" : l4Wins ? "text-accent" : "text-heading";
 
   return (
     <div className="rounded-xl border border-line bg-panel p-4 sm:p-6">
@@ -268,9 +282,7 @@ export function Explorer() {
           </div>
           <Chart level={level} gpu={gpu} provider={provider} u={u} />
           <div className="mt-3 flex flex-wrap items-baseline justify-between gap-2">
-            <p className={`text-2xl font-semibold tracking-tight ${l4Wins ? "text-accent" : "text-heading"}`}>
-              {l4Wins ? `L4 is ${pct(gap)} cheaper` : `API is ${pct(gap)} cheaper`}
-            </p>
+            <p className={`text-2xl font-semibold tracking-tight ${verdictColor}`}>{verdict}</p>
             <p className="font-mono text-xs text-muted tabular-nums">
               L4 {usd(self)} · API {usd(api)} per task
             </p>
@@ -278,7 +290,7 @@ export function Explorer() {
           <p className="mt-1 text-sm text-muted">
             {be <= 1
               ? `Break-even at ${pct(be)} load, about ${int(be * cap)} tasks a day.`
-              : `One L4 never wins here. It would need ${pct(be)} load.`}
+              : `Never, at any number of L4s. Even fully loaded, an L4 costs ${usd(full)} a task vs ${usd(api)}.`}
           </p>
           <p className="mt-3 font-mono text-[11px] text-subtle leading-relaxed">
             glimmer-30b-int4 · 1× L4 {gpu === "spot" ? "spot" : "on-demand"} ${cost.gpu_hourly[gpu]}/hr · capacity{" "}
@@ -290,6 +302,7 @@ export function Explorer() {
       <div className="mt-6 grid gap-3 sm:grid-cols-3">
         {PROVIDERS.map((p) => {
           const b = breakEvenUtil(level, gpu, p.key);
+          const pApi = apiPerTask(level, p.key);
           const active = p.key === provider;
           return (
             <button
@@ -300,13 +313,15 @@ export function Explorer() {
               }`}
             >
               <p className="font-mono text-[11px] text-subtle">
-                {p.label} · {usd(apiPerTask(level, p.key))}/task
+                {p.label} · {usd(pApi)}/task
               </p>
               <p className={`mt-1 text-xl font-semibold tracking-tight ${b <= 1 ? "text-heading" : "text-accent"}`}>
                 {b <= 1 ? `${pct(b)} load` : "never"}
               </p>
               <p className="text-xs text-subtle mt-0.5">
-                {b <= 1 ? "to break even on one L4" : `would need ${pct(b)}, more than one L4`}
+                {b <= 1
+                  ? "to break even on one L4"
+                  : `even fully loaded, an L4 costs ${usd(full)} a task vs ${usd(pApi)}`}
               </p>
             </button>
           );
