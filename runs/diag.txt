@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/Asus/thinkabr/diagnose.py", line 52, in <module>
+    runs = {lv: load(lv) for lv in LEVELS}
+  File "/home/Asus/thinkabr/diagnose.py", line 52, in <dictcomp>
+    runs = {lv: load(lv) for lv in LEVELS}
+  File "/home/Asus/thinkabr/diagnose.py", line 18, in load
+    g = grade.grade_case(r, lab)
+  File "/home/Asus/thinkabr/grade.py", line 47, in grade_case
+    col_ok = norm_col(p.get("column")) in label["accepted_columns"]
+KeyError: 'accepted_columns'
